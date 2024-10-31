@@ -1,29 +1,32 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const loginForm = document.getElementById("loginForm");
-  const googleSignInButton = document.getElementById("googleSignInButton");
-  const githubSignInButton = document.getElementById("githubSignInButton");
-  const darkModeToggle = document.getElementById("dark-mode");
-  const errorMessage = document.getElementById("error-message");
+  const themeToggle = document.getElementById("themeToggle");
+  const toggleDarkIcon = document.querySelector(".toggle-dark-icon");
+  const toggleLightIcon = document.querySelector(".toggle-light-icon");
 
   // Handle dark mode toggle
-  darkModeToggle.addEventListener("change", function() {
-    if (darkModeToggle.checked) {
-      document.body.classList.add("dark-mode");
-    } else {
+  themeToggle.addEventListener("click", function() {
+    if (document.body.classList.contains("dark-mode")) {
       document.body.classList.remove("dark-mode");
+      toggleDarkIcon.classList.remove("hidden");
+      toggleLightIcon.classList.add("hidden");
+    } else {
+      document.body.classList.add("dark-mode");
+      toggleDarkIcon.classList.add("hidden");
+      toggleLightIcon.classList.remove("hidden");
     }
-    document.body.style.transition = "background-color 0.3s ease, color 0.3s ease";
   });
 
-  // Handle login form submission
+  // Form submission handler
+  const loginForm = document.getElementById("loginForm");
   loginForm.addEventListener("submit", async function(e) {
     e.preventDefault();
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
+    const errorMessage = document.getElementById("error-message");
     errorMessage.textContent = "";
 
     try {
-      // Call Supabase API for authentication (replace URL as needed)
+      // Call your authentication API
       const response = await fetch("YOUR_SUPABASE_LOGIN_API_ENDPOINT", {
         method: "POST",
         headers: {
@@ -42,12 +45,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-  // Handle Google sign in
+  // Google Sign-In Button
+  const googleSignInButton = document.getElementById("googleSignInButton");
   googleSignInButton.addEventListener("click", function() {
     alert("Google sign-in not implemented yet.");
   });
 
-  // Handle GitHub sign in
+  // GitHub Sign-In Button
+  const githubSignInButton = document.getElementById("githubSignInButton");
   githubSignInButton.addEventListener("click", function() {
     alert("GitHub sign-in not implemented yet.");
   });
