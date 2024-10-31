@@ -36,6 +36,201 @@
     --sidebar-ring: 240 5% 64.9%;
 }
 
+html, body {
+    background-color: var(--background);
+    color: var(--foreground);
+    transition: all 0.3s ease;
+    font-family: Inter;
+}
+
+body * {
+    transition: all 0.3s ease;
+}
+
+.card {
+    background-color: var(--card);
+    color: var(--card-foreground);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    width: 100%;
+    max-width: 400px;
+    transition: all 0.3s ease;
+}
+
+.card-title,
+.card-description,
+.form-group label,
+.button-icon {
+    transition: all 0.3s ease;
+    }
+
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.card-description {
+    color: var(--muted-foreground);
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.input-group label {
+    font-size: 14px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--input);
+    border-radius: var(--radius);
+    background-color: var(--background);
+    color: var(--foreground);
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+input:hover {
+    border-color: var(--ring);
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--ring);
+    box-shadow: 0 0 0 2px var(--ring);
+}
+
+.forgot-password {
+    font-size: 12px;
+    text-align: right;
+    margin-top: 4px;
+}
+
+.forgot-password a {
+    color: var(--muted-foreground);
+    text-decoration: none;
+}
+
+.button {
+    background-color: var(--primary);
+    border: none;
+    color: var(--primary-foreground);
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: var(--radius);
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    opacity: 0.9;
+}
+
+.button-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    transition: all 0.3s ease;
+}
+
+svg {
+    transition: all 0.3s ease;
+}
+
+.button-outline {
+    background-color: var(--card);
+    border: 1px solid var(--input);
+    color: var(--card-foreground);
+    transition: all 0.3s ease;
+}
+
+.oauth-button {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border-radius: var(--radius);
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.oauth-button:hover {
+    background-color: hsl(221, 83%, 45%);
+}
+
+.sign-up {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 16px;
+    color: var(--muted-foreground);
+}
+
+.sign-up a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.or-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 16px 0;
+}
+
+.or-divider::before,
+.or-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border);
+}
+
+.or-divider span {
+    padding: 0 10px;
+    color: var(--muted-foreground);
+    font-size: 14px;
+}
+
+.theme-toggle {
+    width: 40px;
+    height: 20px;
+    background-color: var(--input);
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.theme-toggle .slider {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: var(--background);
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease;
+}
+
+/* Dark Mode */
+
 .dark-mode {
     --background: hsl(240, 10%, 3.9%);
     --foreground: hsl(0, 0%, 98%);
@@ -73,54 +268,14 @@
     --sidebar-ring: 240 4.9% 83.9%;
 }
 
-html, body {
-    background-color: var(--background);
-    color: var(--foreground);
-    transition: all 0.3s ease;
-}
-
-body * {
-    transition: all 0.3s ease;
-}
-
-.card {
-    background-color: var(--card);
-    color: var(--card-foreground);
-    border-radius: var(--radius);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 24px;
-    width: 100%;
-    max-width: 400px;
-    transition: all 0.3s ease;
-}
-
 .dark-mode .card {
     box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
 }
 
-/* Common Styles (input, buttons, toggle, etc.) */
-.input-group label {
-    font-size: 14px;
+.dark-mode .theme-toggle {
+    background-color: var(--primary);
 }
 
-.input-group input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid var(--input);
-    border-radius: var(--radius);
-    background: var(--background);
-    color: var(--foreground);
-    transition: all 0.3s ease;
+.dark-mode .theme-toggle .slider {
+    transform: translateX(20px);
 }
-
-input:hover {
-    border-color: var(--ring);
-}
-
-input:focus {
-    outline: none;
-    border-color: var(--ring);
-    box-shadow: 0 0 0 2px var(--ring);
-}
-
-/* Additional classes for other components (buttons, footer, divider) */
