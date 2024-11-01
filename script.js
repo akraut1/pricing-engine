@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const themeToggle = document.getElementById("themeToggle");
+  const themeToggle = document.getElementById("theme-Toggle");
   const toggleDarkIcon = document.querySelector(".toggle-dark-icon");
   const toggleLightIcon = document.querySelector(".toggle-light-icon");
 
