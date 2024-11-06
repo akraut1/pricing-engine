@@ -1,11 +1,20 @@
 :root {
+    --width-w-9: 36px;
+    --height-h-5: 20px;
+    --width-w-4: 16px;
+    --height-h-4: 16px;
+    --spacing-0: 0px;
+    --spacing-0-5: 2px;
+    --spacing-2-5: 10px;
+    --border-radius-full: 9999px;
+    --border-width-border-2: 2px;
     --background: hsl(0, 0%, 100%);
     --foreground: hsl(240, 10%, 3.9%);
     --card: hsl(0, 0%, 100%);
     --card-foreground: hsl(240, 10%, 3.9%);
     --popover: hsl(0, 0%, 100%);
     --popover-foreground: hsl(240, 10%, 3.9%);
-    --primary: hsl(221, 83%, 53%);
+    --primary: hsl(240, 5.9%, 10%);
     --primary-foreground: hsl(0, 0%, 98%);
     --secondary: hsl(240, 4.8%, 95.9%);
     --secondary-foreground: hsl(240, 5.9%, 10%);
@@ -14,70 +23,101 @@
     --accent: hsl(240, 4.8%, 95.9%);
     --accent-foreground: hsl(240, 5.9%, 10%);
     --destructive: hsl(0, 84.2%, 60.2%);
-    --destructive-foreground: hsl(210, 40%, 98%);
+    --destructive-foreground: hsl(0, 0%, 98%);
     --border: hsl(240, 5.9%, 90%);
     --input: hsl(240, 5.9%, 90%);
     --ring: hsl(240, 5.9%, 10%);
     --radius: 0.5rem;
-
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 240 5% 64.9%;
+    --chart-1: hsl(12, 76%, 61%);
+    --chart-2: hsl(173, 58%, 39%);
+    --chart-3: hsl(197, 37%, 24%);
+    --chart-4: hsl(43, 74%, 66%);
+    --chart-5: hsl(27, 87%, 67%);
 }
 
-html, body {
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
     background-color: var(--background);
     color: var(--foreground);
-    font-family: Arial, sans-serif;
-    transition: all 0.3s ease;
-}
-
-body * {
-    transition: all 0.3s ease;
-}
-
-.card {
-    background-color: var(--card);
-    color: var(--card-foreground);
-    border-radius: var(--radius);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 24px;
-    width: 100%;
-    max-width: 400px;
-    transition: all 0.3s ease;
+    min-height: 100vh;
 }
 
 .theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    background-color: var(--input);
-    border-radius: 15px;
-    position: relative;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    gap: var(--spacing-2-5);
 }
 
-.theme-toggle .slider {
+.switch {
+    position: relative;
+    display: inline-block;
+    width: var(--width-w-9);
+    height: var(--height-h-5);
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
     position: absolute;
-    width: 16px;
-    height: 16px;
-    background-color: var(--background);
-    border-radius: 50%;
-    top: 2px;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--input);
+    transition: .4s;
+    border-radius: var(--border-radius-full);
+    border: var(--border-width-border-2) solid rgba(255, 255, 255, 0.00);
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-0) var(--spacing-0-5);
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
     left: 2px;
-    transition: transform 0.3s ease;
+    width: var(--width-w-4);
+    height: var(--height-h-4);
+    background-color: var(--background);
+    transition: .4s;
+    border-radius: var(--border-radius-full);
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.10), 0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+input:checked + .slider {
+    background-color: var(--primary);
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
+
+.theme-icon {
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+
+.sun-icon {
+    opacity: 1;
+    margin-right: 0;
+}
+
+.moon-icon {
+    opacity: 0;
+    margin-left: 0;
 }
 
 .oauth-button {
@@ -96,14 +136,14 @@ body * {
 
 /* Dark Mode */
 
-.dark-mode {
+.dark {
     --background: hsl(240, 10%, 3.9%);
     --foreground: hsl(0, 0%, 98%);
     --card: hsl(240, 10%, 3.9%);
     --card-foreground: hsl(0, 0%, 98%);
     --popover: hsl(240, 10%, 3.9%);
     --popover-foreground: hsl(0, 0%, 98%);
-    --primary: hsl(224, 76%, 48%);
+    --primary: hsl(0, 0%, 98%);
     --primary-foreground: hsl(240, 5.9%, 10%);
     --secondary: hsl(240, 3.7%, 15.9%);
     --secondary-foreground: hsl(0, 0%, 98%);
@@ -116,31 +156,25 @@ body * {
     --border: hsl(240, 3.7%, 15.9%);
     --input: hsl(240, 3.7%, 15.9%);
     --ring: hsl(240, 4.9%, 83.9%);
-
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 240 4.9% 83.9%;
+    --chart-1: hsl(220, 70%, 50%);
+    --chart-2: hsl(160, 60%, 45%);
+    --chart-3: hsl(30, 80%, 55%);
+    --chart-4: hsl(280, 65%, 60%);
+    --chart-5: hsl(340, 75%, 55%);
 }
 
-.dark-mode .card {
-    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-}
-
-.dark-mode .theme-toggle {
+.dark .slider {
     background-color: var(--primary);
 }
 
-.dark-mode .theme-toggle .slider {
-    transform: translateX(20px);
+.dark .slider:before {
+    background-color: var(--background);
+}
+
+.dark .sun-icon {
+    opacity: 0;
+}
+
+.dark .moon-icon {
+    opacity: 1;
 }
