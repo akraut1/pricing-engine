@@ -220,7 +220,7 @@ div[data-feathery-id.="engine1-container-programs"] {
 /* Dark Mode Styles */
 
 /* Container */
-.dark div[data-feathery-id.="Container 795"] {
+.dark div[data-feathery-id="Container 795"] {
   background-color: linear-gradient(0deg, var(--alpha-40, rgba(9, 9, 11, 0.60)) 0%, var(--alpha-40, rgba(9, 9, 11, 0.60)) 100%), var(--base-muted, #27272A);
 }
 
