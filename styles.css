@@ -52,11 +52,11 @@ body {
 }
 
 /* Container */
-div[data-feathery-id.="Container 380"],
-div[data-feathery-id.="Container 797"],
-div[data-feathery-id.="Container 948"],
-div[data-feathery-id.="Container 2112"],
-div[data-feathery-id.="engine1-container-programs"] {
+div[data-feathery-id="Container 380"],
+div[data-feathery-id="Container 797"],
+div[data-feathery-id="Container 948"],
+div[data-feathery-id="Container 2112"],
+div[data-feathery-id="engine1-container-programs"] {
   display: flex;
   padding: var(--spacing-6, 24px);
   flex-direction: column;
@@ -224,11 +224,11 @@ div[data-feathery-id.="engine1-container-programs"] {
   background-color: linear-gradient(0deg, var(--alpha-40, rgba(9, 9, 11, 0.60)) 0%, var(--alpha-40, rgba(9, 9, 11, 0.60)) 100%), var(--base-muted, #27272A);
 }
 
-.dark div[data-feathery-id.="Container 380"],
-.dark div[data-feathery-id.="Container 797"],
-.dark div[data-feathery-id.="Container 948"],
-.dark div[data-feathery-id.="Container 2112"],
-.dark div[data-feathery-id.="engine1-container-programs"] {
+.dark div[data-feathery-id="Container 380"],
+.dark div[data-feathery-id="Container 797"],
+.dark div[data-feathery-id="Container 948"],
+.dark div[data-feathery-id="Container 2112"],
+.dark div[data-feathery-id="engine1-container-programs"] {
   border-radius: var(--border-radius-lg, 8px);
   border: var(--border-width-border-1, 1px) solid var(--base-border, #27272A);
   background-color: var(--base-card, #09090B);
