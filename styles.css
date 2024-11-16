@@ -45,6 +45,11 @@
   --ring: 240 4.9% 83.9%;
 }
 
+
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   background-color: hsl(var(--background));
