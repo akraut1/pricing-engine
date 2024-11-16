@@ -223,6 +223,8 @@ div[data-feathery-id="engine1-container-programs"] {
 /* Container */
 .dark div[data-feathery-id="Container 795"] {
   background-color: linear-gradient(0deg, var(--alpha-40, rgba(9, 9, 11, 0.60)) 0%, var(--alpha-40, rgba(9, 9, 11, 0.60)) 100%), var(--base-muted, #27272A);
+  /* Transition */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .dark div[data-feathery-id="Container 380"],
@@ -235,5 +237,7 @@ div[data-feathery-id="engine1-container-programs"] {
   background-color: var(--base-card, #09090B);
   /* shadow/sm */
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  /* Transition */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
