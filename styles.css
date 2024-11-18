@@ -184,6 +184,10 @@ body {
   line-height: 1.25rem;
 }
 
+.feathery-label {
+  color: hsl(var(--primary));
+}
+
 .feathery-button {
   border-radius: var(--radius);
   background-color: hsl(var(--primary));
@@ -254,6 +258,10 @@ div[data-feathery-id="engine1-container-programs"] {
 
 .dark body {
   background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+.dark feathery-label {
   color: hsl(var(--foreground));
 }
 
