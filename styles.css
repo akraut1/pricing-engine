@@ -80,8 +80,7 @@ body {
 }
 
 /* Elements: Container */
-div[data-feathery-id="Container 2175",
-.inner-container.css-h8xlcy {
+div[data-feathery-id="engine1-container-programs"] {
   background-color: hsl(var(--card));
 }
 
@@ -241,9 +240,7 @@ div[data-feathery-id="Container 2175",
 }
 
 /* Elements: Container */
-div[data-feathery-id="Container 2175",
-.inner-container.css-h8xlcy,
-div[data-feathery-id="engine1-container-programs"] {
+.dark div[data-feathery-id="engine1-container-programs"] {
   background-color: hsl(var(--card));
 }
 
