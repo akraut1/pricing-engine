@@ -75,14 +75,14 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 /* Elements: Container */
 div[data-feathery-id="Container 2"],
 div[data-feathery-id="Container 795"] {
-  background-color: hsl(var(--dashboard-background));
+  background-color: var(--dashboard-background);
 }
 
 div[data-feathery-id="Container 380"],
@@ -97,8 +97,8 @@ div[data-feathery-id="engine1-container-programs"] {
   gap: var(--spacing-6, 24px);
   align-self: stretch;
   border-radius: 8px;
-  border: 1px solid hsl(var(--border));
-  background-color: hsl(var(--card));
+  border: 1px solid var(--border);
+  background-color: var(--card);
   /* shadow/sm */
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
 }
@@ -111,10 +111,10 @@ div[data-feathery-id="engine1-container-programs"] {
 .feathery-combobox-input {
   width: 100%;
   padding: 0.5rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius);
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 .feathery-combobox-dropdown {
@@ -124,7 +124,7 @@ div[data-feathery-id="engine1-container-programs"] {
   width: 100%;
   max-height: 200px;
   overflow-y: auto;
-  background-color: hsl(var(--background));
+  background-color: var(--background);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   z-index: 10;
@@ -136,7 +136,7 @@ div[data-feathery-id="engine1-container-programs"] {
 }
 
 .feathery-combobox-option:hover {
-  background-color: hsl(var(--accent));
+  background-color: var(--accent);
 }
 
 /* Data Table */
@@ -148,13 +148,13 @@ div[data-feathery-id="engine1-container-programs"] {
 
 .feathery-data-table th,
 .feathery-data-table td {
-  border-bottom: 1px solid hsl(var(--border));
+  border-bottom: 1px solid var(--border);
   padding: 0.75rem;
   text-align: left;
 }
 
 .feathery-data-table th {
-  background-color: hsl(var(--muted));
+  background-color: var(--muted);
   font-weight: 600;
 }
 
@@ -164,8 +164,8 @@ div[data-feathery-id="engine1-container-programs"] {
 
 /* UI Highlights */
 .feathery-highlight {
-  background-color: hsl(var(--accent));
-  color: hsl(var(--accent-foreground));
+  background-color: var(--accent);
+  color: var(--accent-foreground);
   padding: 0.25rem 0.5rem;
   border-radius: var(--radius);
 }
@@ -181,37 +181,37 @@ div[data-feathery-id="engine1-container-programs"] {
   white-space: nowrap;
   vertical-align: baseline;
   border-radius: 9999px;
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background-color: var(--primary);
+  color: var(--primary-foreground);
 }
 
 /* Links */
 .feathery-link {
-  color: hsl(var(--primary));
+  color: var(--primary);
   text-decoration: none;
   transition: color 0.2s ease-in-out;
 }
 
 .feathery-link:hover {
-  color: hsl(var(--primary) / 0.8);
+  color: var(--primary) / 0.8);
   text-decoration: underline;
 }
 
 /* Existing styles */
 .feathery-input {
   border-radius: var(--radius);
-  border: 1px solid hsl(var(--border));
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
+  border: 1px solid var(--border);
+  background-color: var(--background);
+  color: var(--foreground);
   padding: 0.5rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
 .feathery-button {
-  border-radius: var(--radius);
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  border-radius: (--radius);
+  background-color: var(--primary);
+  color: var(--primary-foreground);
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -220,14 +220,14 @@ div[data-feathery-id="engine1-container-programs"] {
 }
 
 .feathery-button:hover {
-  background-color: hsl(var(--primary) / 0.9);
+  background-color: var(--primary) / 0.9);
 }
 
 .feathery-select {
   border-radius: var(--radius);
-  border: 1px solid hsl(var(--border));
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
+  border: 1px solid var(--border);
+  background-color: var(--background);
+  color: var(--foreground);
   padding: 0.5rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -235,17 +235,17 @@ div[data-feathery-id="engine1-container-programs"] {
 
 .feathery-checkbox,
 .feathery-radio {
-  accent-color: hsl(var(--primary));
+  accent-color: var(--primary);
 }
 
 .feathery-label {
-  color: hsl(var(--primary));
+  color: var(--primary);
   font-size: 0.875rem;
   font-weight: 500;
 }
 
 .feathery-error {
-  color: hsl(var(--destructive));
+  color: var(--destructive);
   font-size: 0.75rem;
   margin-top: 0.25rem;
 }
@@ -254,18 +254,18 @@ div[data-feathery-id="engine1-container-programs"] {
 /* Dark Mode Styles */
 
 .dark body {
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 .dark feathery-label {
-  color: hsl(var(--foreground));
+  color: var(--foreground);
 }
 
 /* Container */
 .dark div[data-feathery-id="Container 2"],
 .dark div[data-feathery-id="Container 795"] {
-  background-color: hsl(var(--dashboard-background));
+  background-color: var(--dashboard-background);
 }
 
 .dark div[data-feathery-id="Container 380"],
@@ -274,8 +274,8 @@ div[data-feathery-id="engine1-container-programs"] {
 .dark div[data-feathery-id="Container 2112"],
 .dark div[data-feathery-id="engine1-container-programs"] {
   border-radius: 8px;
-  border: 1px solid hsl(var(--border));
-  background-color: hsl(var(--card));
+  border: 1px solid var(--border);
+  background-color: var(--card);
   /* shadow/sm */
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
 }
