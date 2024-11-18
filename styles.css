@@ -103,14 +103,6 @@ body {
   opacity: 0;
 }
 
-.dark .sun-icon {
-  opacity: 0;
-}
-
-.dark .moon-icon {
-  opacity: 1;
-}
-
 .switch {
   position: relative;
   display: inline-block;
@@ -158,14 +150,6 @@ input:checked + .slider {
 
 input:checked + .slider:before {
   transform: translateX(14px);
-}
-
-.dark .slider {
-  background-color: var(--primary);
-}
-
-.dark .slider:before {
-  background-color: var(--background);
 }
 
 
@@ -310,7 +294,12 @@ div[data-feathery-id="engine1-container-programs"] {
   accent-color: hsl(var(--primary));
 }
 
-.css-r8hpdi, 
+.css-r8hpdi {
+  color: hsl(var(--primary));
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
 .feathery-label {
   color: hsl(var(--primary));
   font-size: 0.875rem;
@@ -330,18 +319,34 @@ div[data-feathery-id="engine1-container-programs"] {
   color: hsl(var(--foreground));
 }
 
-/* Elements: Container */
+.dark .sun-icon {
+  opacity: 0;
+}
+
+.dark .moon-icon {
+  opacity: 1;
+}
+
+.dark .slider {
+  background-color: var(--primary);
+}
+
+.dark .slider:before {
+  background-color: var(--background);
+}
+
+.dark .feathery-label {
+  color: hsl(var(--foreground));
+}
+
 .dark div[data-feathery-id="engine1-container-programs"] {
   background-color: hsl(var(--card));
   border-color: hsl(var(--border));
 }
 
-.dark .css-r8hpdi,
-.dark .feathery-label {
+.dark .css-r8hpdi { 
   color: hsl(var(--foreground));
 }
-
-/* Container */
 
 
 
