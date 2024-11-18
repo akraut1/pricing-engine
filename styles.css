@@ -237,6 +237,7 @@ div[data-feathery-id="engine1-container-programs"] {
   accent-color: hsl(var(--primary));
 }
 
+.css-r8hpdi, 
 .feathery-label {
   color: hsl(var(--primary));
   font-size: 0.875rem;
@@ -256,6 +257,7 @@ div[data-feathery-id="engine1-container-programs"] {
   color: hsl(var(--foreground));
 }
 
+.dark .css-r8hpdi,
 .dark .feathery-label {
   color: hsl(var(--foreground));
 }
