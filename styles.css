@@ -238,7 +238,7 @@ div[data-feathery-id="engine1-container-programs"] {
 }
 
 .feathery-label {
-  color: hsl(var(--foreground));
+  color: hsl(var(--primary));
   font-size: 0.875rem;
   font-weight: 500;
 }
