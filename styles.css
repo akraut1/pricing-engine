@@ -80,7 +80,7 @@ body {
 }
 
 /* Container */
-.dark div[data-feathery-id="Container 795"] {
+div[data-feathery-id="Container 795"] {
   background-color: hsl(var(--dashboard-background));
 }
 
