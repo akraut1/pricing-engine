@@ -82,6 +82,7 @@ body {
 /* Elements: Container */
 div[data-feathery-id="engine1-container-programs"] {
   background-color: hsl(var(--card));
+  border-color: hsl(var(--border));
 }
 
 /* Combo Box */
@@ -242,6 +243,7 @@ div[data-feathery-id="engine1-container-programs"] {
 /* Elements: Container */
 .dark div[data-feathery-id="engine1-container-programs"] {
   background-color: hsl(var(--card));
+  border-color: hsl(var(--border));
 }
 
 .dark .css-r8hpdi,
