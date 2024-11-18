@@ -236,7 +236,7 @@ div[data-feathery-id="engine1-container-programs"] {
 /* Dark Mode Styles */
 
 .dark body {
-  background-color: hsl(var(--background));
+  background-color: hsl(var(--dashboard-background));
   color: hsl(var(--foreground));
 }
 
