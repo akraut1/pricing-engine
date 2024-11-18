@@ -75,7 +75,7 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: hsl(var(--background));
+  background-color: hsl(var(--dashboard-background));
   color: hsl(var(--foreground));
 }
 
