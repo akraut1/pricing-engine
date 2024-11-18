@@ -244,8 +244,8 @@ div[data-feathery-id="engine1-container-programs"] {
   gap: var(--spacing-6, 24px);
   align-self: stretch;
   border-radius: var(--border-radius-lg, 8px);
-  border: var(--border-width-border-1, 1px) solid var(--base-border, #E4E4E7);
-  background-color: var(--card, #FFF);
+  border: var(--border-width-border-1, 1px) solid hsl(var(--border));
+  background-color: hsl(var(--card));
   /* shadow/sm */
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
 }
@@ -269,8 +269,8 @@ div[data-feathery-id="engine1-container-programs"] {
 .dark div[data-feathery-id="Container 2112"],
 .dark div[data-feathery-id="engine1-container-programs"] {
   border-radius: var(--border-radius-lg, 8px);
-  border: var(--border-width-border-1, 1px) solid var(--base-border, #27272A);
-  background-color: var(--card, #09090B);
+  border: var(--border-width-border-1, 1px) solid hsl(var(--base-border));
+  background-color: hsl(var(--card));
   /* shadow/sm */
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
 }
