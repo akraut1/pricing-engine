@@ -159,6 +159,10 @@ div[data-feathery-id="engine1-container-programs"] {
   border-color: hsl(var(--border));
 }
 
+.dark div[data-feathery-id="Container 793"] {
+  color: hsl(var(--primary-foreground);
+}
+
 /* Combo Box */
 .feathery-combobox {
   position: relative;
@@ -337,6 +341,10 @@ div[data-feathery-id="engine1-container-programs"] {
 
 .dark .feathery-label {
   color: hsl(var(--foreground));
+}
+
+.dark div[data-feathery-id="Container 793"] {
+  color: hsl(var(--foreground);
 }
 
 .dark div[data-feathery-id="engine1-container-programs"] {
