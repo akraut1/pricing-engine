@@ -159,7 +159,7 @@ div[data-feathery-id="engine1-container-programs"] {
   border-color: hsl(var(--border));
 }
 
-div[data-feathery-id="Container 793"] {
+span[data-index="0"] {
   color: hsl(var(--primary-foreground);
 }
 
@@ -343,7 +343,7 @@ div[data-feathery-id="Container 793"] {
   color: hsl(var(--foreground));
 }
 
-.dark div[data-feathery-id="Container 793"] {
+.dark span[data-index="0"] {
   color: hsl(var(--foreground);
 }
 
