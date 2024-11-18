@@ -184,7 +184,7 @@ body {
   line-height: 1.25rem;
 }
 
-.feathery-label {
+.label {
   color: hsl(var(--primary));
 }
 
@@ -261,7 +261,7 @@ div[data-feathery-id="engine1-container-programs"] {
   color: hsl(var(--foreground));
 }
 
-.dark feathery-label {
+.dark label {
   color: hsl(var(--foreground));
 }
 
