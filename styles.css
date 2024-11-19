@@ -80,6 +80,8 @@ body {
   position: fixed;
   top: 20px;
   right: 20px;
+  width: 30px;
+  height: 15px;
   display: flex;
   align-items: center;
   gap: 10px;
