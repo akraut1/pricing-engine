@@ -24,6 +24,11 @@
     --sidebar-collapsed-width: 64px;
     --sidebar-background: hsla(0, 0%, 98%, 1);
     --sidebar-background-hover: hsla(240, 4.8%, 95.9%, 1);
+    --sidebar-foreground: hsla(240, 5%, 26%, 1);
+    --sidebar-background-active: hsla(240, 4.8%, 95.9%, 1);
+    --slot-background: hsla(271, 91%, 65%, 0.1);
+    --slot-border: dashed hsla(271, 91%, 65%, 0.5);
+    --slot-text: hsla(240, 5.9%, 10%, 1);
 }
 
 .dark-mode {
@@ -49,6 +54,11 @@
     --ring: hsla(240, 4.9%, 83.9%, 1);
     --sidebar-background: hsla(240, 5.9%, 10%, 1);
     --sidebar-background-hover: hsla(240, 3.7%, 15.9%, 1);
+    --sidebar-foreground: hsla(240, 5%, 96%, 1);
+    --sidebar-background-active: hsla(240, 3.7%, 15.9%, 1);
+    --slot-background: hsla(271, 91%, 65%, 0.1);
+    --slot-border: dashed hsla(271, 91%, 65%, 0.5);
+    --slot-text: hsla(0, 0%, 98%, 1);
 }
 
 * {
@@ -121,7 +131,8 @@ body {
 
 .nav-title {
     font-size: 0.75rem;
-    color: var(--text-secondary);
+    color: var(--sidebar-foreground);
+    opacity: 0.7;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
 }
@@ -130,7 +141,7 @@ body {
     display: flex;
     align-items: center;
     padding: 0.5rem;
-    color: var(--text-primary);
+    color: var(--sidebar-foreground);
     text-decoration: none;
     border-radius: 6px;
     margin-bottom: 0.25rem;
@@ -138,11 +149,11 @@ body {
 }
 
 .nav-item:hover {
-    background: var(--hover-bg);
+    background: var(--sidebar-background-hover);
 }
 
 .nav-item.active {
-    background: var(--hover-bg);
+    background: var(--sidebar-background-active);
 }
 
 .nav-icon {
@@ -167,7 +178,7 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 1.5rem;
-    color: var(--text-secondary);
+    color: var(--secondary);
 }
 
 .page-title {
@@ -180,17 +191,18 @@ body {
     width: 100%;
     max-width: 320px;
     padding: 0.5rem 1rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border);
     border-radius: 6px;
     margin-bottom: 1.5rem;
-    background-color: var(--primary-bg);
-    color: var(--text-primary);
+    background-color: var(--background);
+    color: var(--muted-foreground);
 }
 
 .content-slot {
     padding: 2rem;
-    background: var(--slot-bg);
+    background: var(--slot-background);
     border-radius: 8px;
+    border: var(--slot-border);
     color: var(--slot-text);
     text-align: center;
 }
@@ -200,7 +212,7 @@ body {
     display: flex;
     align-items: center;
     padding: 0.5rem;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--border);
 }
 
 .user-avatar {
@@ -222,8 +234,8 @@ body {
 }
 
 .user-name {
-    font-weight: 500;
-    color: var(--text-primary);
+    font-weight: 600;
+    color: var(--sidebar-foreground);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -231,7 +243,8 @@ body {
 
 .user-email {
     font-size: 0.875rem;
-    color: var(--text-secondary);
+    font-weight: 400;
+    color: var(--sidebar-foreground);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -243,14 +256,14 @@ body {
     right: 1rem;
     background: none;
     border: none;
-    color: #09090b;
+    color: var(--foreground);
     cursor: pointer;
     font-size: 1.5rem;
     z-index: 10;
 }
 
 .dark-mode .theme-toggle {
-    color: #ffffff;
+    color: var(--foreground);
 }
 
 .toggle-sidebar {
@@ -259,8 +272,8 @@ body {
     right: -12px;
     width: 24px;
     height: 24px;
-    background: var(--primary-bg);
-    border: 1px solid var(--border-color);
+    background: var(--background);
+    border: 1px solid var(--border);
     border-radius: 50%;
     cursor: pointer;
     display: flex;
