@@ -6,7 +6,7 @@
   --card: hsl(0 0% 100%);
   --card-foreground: hsl(240 10% 3.9%);
   --popover: hsl(0 0% 100%);
-  --popover-foreground: 240 10% 3.9%);
+  --popover-foreground: hsl(240 10% 3.9%);
   --primary: hsl(240 5.9% 10%);
   --primary-foreground: hsl(0 0% 98%);
   --secondary: hsl(240 4.8% 95.9%);
@@ -35,6 +35,14 @@
   --sidebar-border: hsl(220 13% 91%);
   --sidebar-ring: hsl(240 5% 65%);
   --dashboard-background: linear-gradient(0deg, rgba(255, 255, 255, 0.60) 0%, rgba(255, 255, 255, 0.60) 100%), linear-gradient(0deg, hsl(var(--muted)) 0%, hsl(var(--muted)) 100%), hsl(var(--background));
+  --width-w-9: 36px;
+  --height-h-5: 20px;
+  --width-w-4: 16px;
+  --height-h-4: 16px;
+  --spacing-0: 0px;
+  --spacing-0-5: 2px;
+  --border-radius-full: 9999px;
+  --border-width-border-2: 2px;
 }
 
 .dark {
@@ -43,7 +51,7 @@
   --card: hsl(240 10% 3.9%);
   --card-foreground: hsl(0 0% 98%);
   --popover: hsl(240 10% 3.9%);
-  --popover-foreground: hsl(0 0% 98%;
+  --popover-foreground: hsl(0 0% 98%);
   --primary: hsl(0 0% 98%);
   --primary-foreground: hsl(240 5.9% 10%);
   --secondary: hsl(240 3.7% 15.9%);
@@ -57,19 +65,6 @@
   --border: hsl(240 3.7% 15.9%);
   --input: hsl(240 3.7% 15.9%);
   --ring: hsl(240 4.9% 83.9%);
-  --chart-1: hsl(220 70% 50%);
-  --chart-2: hsl(160 60% 45%);
-  --chart-3: hsl(30 80% 55%);
-  --chart-4: hsl(280 65% 60%);
-  --chart-5: hsl(340 75% 55%);
-  --sidebar-foreground: hsl(240 6% 96%);
-  --sidebar-background: hsl(240 6% 10%);
-  --sidebar-primary: hsl(224 76% 48%);
-  --sidebar-primary-foreground: hsl(0 0% 100%);
-  --sidebar-accent: 240 4% 16%;
-  --sidebar-accent-foreground: hsl(240 5% 96%);
-  --sidebar-border: hsl(240 5% 16%);
-  --sidebar-ring: hsl(240 5% 84%);
   --dashboard-background: linear-gradient(0deg, rgba(9, 9, 11, 0.60) 0%, rgba(9, 9, 11, 0.60) 100%), linear-gradient(0deg, hsl(var(--muted)) 0%, hsl(var(--muted)) 100%), hsl(var(--background));
 }
 
@@ -77,6 +72,7 @@ body {
   font-family: 'Inter', sans-serif;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Toggle Theme */
@@ -87,6 +83,7 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+  z-index: 1000;
 }
 
 .theme-icon {
@@ -114,7 +111,7 @@ body {
   opacity: 0;
   width: 0;
   height: 0;
-        }
+}
 
 .slider {
   position: absolute;
@@ -152,172 +149,6 @@ input:checked + .slider:before {
   transform: translateX(14px);
 }
 
-
-/* Elements: Container */
-div[data-feathery-id="engine1-container-programs"] {
-  background-color: hsl(var(--card));
-  border-color: hsl(var(--border));
-}
-
-span[data-index="0"] {
-  color: hsl(var(--primary-foreground);
-}
-
-/* Combo Box */
-.feathery-combobox {
-  position: relative;
-}
-
-.feathery-combobox-input {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius);
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-}
-
-.feathery-combobox-dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  max-height: 200px;
-  overflow-y: auto;
-  background-color: hsl(var(--background));
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius);
-  z-index: 10;
-}
-
-.feathery-combobox-option {
-  padding: 0.5rem;
-  cursor: pointer;
-}
-
-.feathery-combobox-option:hover {
-  background-color: hsl(var(--accent));
-}
-
-/* Data Table */
-.feathery-data-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-}
-
-.feathery-data-table th,
-.feathery-data-table td {
-  border-bottom: 1px solid hsl(var(--border));
-  padding: 0.75rem;
-  text-align: left;
-}
-
-.feathery-data-table th {
-  background-color: hsl(var(--muted));
-  font-weight: 600;
-}
-
-.feathery-data-table tr:last-child td {
-  border-bottom: none;
-}
-
-/* UI Highlights */
-.feathery-highlight {
-  background-color: hsl(var(--accent));
-  color: hsl(var(--accent-foreground));
-  padding: 0.25rem 0.5rem;
-  border-radius: var(--radius);
-}
-
-/* Badges */
-.feathery-badge {
-  display: inline-block;
-  padding: 0.25rem 0.5rem;
-  font-size: 0.75rem;
-  font-weight: 500;
-  line-height: 1;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: 9999px;
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
-}
-
-/* Links */
-.feathery-link {
-  color: hsl(var(--primary));
-  text-decoration: none;
-  transition: color 0.2s ease-in-out;
-}
-
-.feathery-link:hover {
-  color: hsl(var(--primary) / 0.8);
-  text-decoration: underline;
-}
-
-/* Existing styles */
-.feathery-input {
-  border-radius: var(--radius);
-  border: 1px solid hsl(var(--border));
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-  padding: 0.5rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.feathery-button {
-  border-radius: var(--radius);
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 500;
-  transition: background-color 0.2s;
-}
-
-.feathery-button:hover {
-  background-color: hsl(var(--primary) / 0.9);
-}
-
-.feathery-select {
-  border-radius: var(--radius);
-  border: 1px solid hsl(var(--border));
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-  padding: 0.5rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.feathery-checkbox,
-.feathery-radio {
-  accent-color: hsl(var(--primary));
-}
-
-.css-r8hpdi {
-  color: hsl(var(--primary));
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
-.feathery-label {
-  color: hsl(var(--primary));
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
-.feathery-error {
-  color: hsl(var(--destructive));
-  font-size: 0.75rem;
-  margin-top: 0.25rem;
-}
-
-/* Dark Mode Styles */
-
 .dark body {
   background-color: hsl(var(--dashboard-background));
   color: hsl(var(--foreground));
@@ -338,23 +169,5 @@ span[data-index="0"] {
 .dark .slider:before {
   background-color: var(--background);
 }
-
-.dark .feathery-label {
-  color: hsl(var(--foreground));
-}
-
-.dark span[data-index="0"] {
-  color: hsl(var(--foreground);
-}
-
-.dark div[data-feathery-id="engine1-container-programs"] {
-  background-color: hsl(var(--card));
-  border-color: hsl(var(--border));
-}
-
-.dark .css-r8hpdi { 
-  color: hsl(var(--foreground));
-}
-
 
 
