@@ -20,7 +20,7 @@
     --ring: hsl(240, 5.9%, 10%);
 }
 
-[data-theme="dark"] {
+.dark-mode {
     --background: hsl(240, 10%, 3.9%);
     --foreground: hsl(0, 0%, 98%);
     --card: hsl(240, 10%, 3.9%);
@@ -42,26 +42,32 @@
     --ring: hsl(240, 4.9%, 83.9%);
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
+    transition: all var(--transition-speed) ease-in-out;
+}
+
 body {
     background-color: var(--background);
     color: var(--foreground);
 }
 
 .theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
+    position: absolute;
+    top: 1rem;          /* Position from top */
+    right: 1rem;        /* Position from right */
+    border: none;
+    color: var(--foreground);
+    cursor: pointer;
+    font-size: 1.5 rem;
+    z-index: 10;      /* Ensure it's above other elements */
 }
 
-.theme-toggle {
-    position: fixed;
-    top: 20px;          /* Position from top */
-    right: 20px;        /* Position from right */
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    z-index: 9999;      /* Ensure it's above other elements */
-    background: transparent; /* Remove white background */
+.dark-mode .theme-toggle { 
+    color: var(--foreground);
 }
 
 .theme-icon {
@@ -78,16 +84,16 @@ body {
     opacity: 0;
 }
 
-.dark .sun-icon {
+.dark-mode .sun-icon {
     opacity: 0;
 }
 
-.dark .moon-icon {
+.dark-mode .moon-icon {
     opacity: 1;
 }
 
-[data-theme="light"] .sun-icon,
-[data-theme="dark"] .moon-icon {
+[data-theme="light-mode"] .sun-icon,
+[data-theme="dark-mode"] .moon-icon {
     display: block;
 }
 
