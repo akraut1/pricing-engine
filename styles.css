@@ -84,6 +84,10 @@ body {
   margin: 0;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+	justify-content: center;
   font-family: 'Inter', sans-serif;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
@@ -99,7 +103,8 @@ body {
   display: block;
   background: hsl(0, 0%, 92%);
   border-radius: 200px;
-  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4), 
+    inset 0px -5px 15px rgba(255, 255, 255, 0.4);
   cursor: pointer;
   transition: 0.3s;
 }
@@ -178,20 +183,6 @@ body {
   color: hsl(var(--foreground));
 }
 
-.darkmode .sun-icon {
-  opacity: 0;
-}
 
-.darkmode .moon-icon {
-  opacity: 1;
-}
-
-.darkmode .slider {
-  background-color: var(--primary);
-}
-
-.darkmode .slider:before {
-  background-color: var(--background);
-}
 
 
