@@ -76,54 +76,94 @@ body {
     color: var(--foreground);
 }
 
-.theme-toggle-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-}
+/* Theme tiggle styles */
 
 .theme-toggle {
-  display: inline-flex;
-  border-radius: 0.5rem;
-  border: 1px solid var(--border-color);
-  overflow: hidden;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
 }
 
-.theme-toggle button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 1rem;
-  background-color: var(--primary-bg);
-  color: var(--text-secondary);
-  border: none;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: background-color 0.3s, color 0.3s;
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
 }
 
-.theme-toggle button svg {
-  margin-right: 0.5rem;
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
-.theme-toggle button[aria-selected="true"] {
-  background-color: var(--hover-bg);
-  color: var(--text-primary);
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--background);
+    border: 2px solid var(--border);
+    transition: .4s;
+    border-radius: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px;
 }
 
-.theme-toggle button:hover {
-  background-color: var(--hover-bg);
+.slider svg {
+    width: 20px;
+    height: 20px;
+    color: var(--foreground);
 }
 
-.theme-toggle button:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--border-color);
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 2px;
+    background-color: var(--primary);
+    transition: .4s;
+    border-radius: 50%;
 }
 
-:root:not(.dark-mode) #theme-toggle .sun-icon,
-:root.dark-mode #theme-toggle .moon-icon {
-  display: block;
+input:checked + .slider {
+    background-color: var(--background);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.sun-icon {
+    margin-left: 4px;
+}
+
+.moon-icon {
+    margin-right: 4px;
+}
+
+/* Show/hide icons based on theme */
+.dark-mode .sun-icon {
+    opacity: 0;
+}
+
+.dark-mode .moon-icon {
+    opacity: 1;
+}
+
+:root:not(.dark-mode) .sun-icon {
+    opacity: 1;
+}
+
+:root:not(.dark-mode) .moon-icon {
+    opacity: 0;
 }
 
 .sidebar {
