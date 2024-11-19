@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', function () {
+  const darkModeToggle = document.querySelector('#darkmode-toggle');
+  const container = document.querySelector('#darkmode-toggle-container');
+  const body = document.body;
 let darkMode = localStorage.getItem('darkMode');
 const darkModeToggle = document.querySelector('#darkmode-toggle');
 
@@ -7,30 +11,36 @@ console.log(darkMode);
 // if dark mode is enabled, turn it off. If dark mode is dusabled, tturn it on
 
 const enableDarkMode = () => {
-  //1. add the class darkmode to the body
-  document.body.classList.add('darkmode');
+  // 1. add the class darkmode to the body
+  body.classList.add('darkmode');
   // 2. update darkMode in the localStorage
   localStorage.setItem('darkMode', 'enabled')
 };
 
 const disableDarkMode = () => {
-  //1. add the class darkmode to the body
-  document.body.classList.remove('darkmode');
+  // 1. add the class darkmode to the body
+  body.classList.remove('darkmode');
   // 2. update darkMode in the localStorage
   localStorage.setItem('darkMode', 'null')
 };
 
 if (darkMode === 'enabled') {
-  enableDarkMOde();
+  enableDarkMode();
+} else {
+  disableDarkMode();
 }
 
-darkModeToggle.addEventListener('click', () => {
-  darkMode = localStorage.getItem('darkMode')
-  if (darkMode !== 'enabled') {
-    enableDarkMode();
-    console.log(darkMode);
+// Add event listener for toggle
+if (darkModeToggle) {
+    darkModeToggle.addEventListener('change', function () {
+      darkMode = localStorage.getItem('darkMode');
+      if (darkMode !== 'enabled') {
+        enableDarkMode();
+      } else {
+        disableDarkMode();
+      }
+    });
   } else {
-    disableDarkMode();
-    console.log(darkMode);
+    console.error('Dark mode toggle not found in Feathery form.');
   }
 });
