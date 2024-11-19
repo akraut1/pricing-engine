@@ -169,24 +169,24 @@ body {
   background: hsl(0, 0%, 14.1%);
 }
 
-.dark body {
+.darkmode body {
   background-color: hsl(var(--dashboard-background));
   color: hsl(var(--foreground));
 }
 
-.dark .sun-icon {
+.darkmode .sun-icon {
   opacity: 0;
 }
 
-.dark .moon-icon {
+.darkmode .moon-icon {
   opacity: 1;
 }
 
-.dark .slider {
+.darkmode .slider {
   background-color: var(--primary);
 }
 
-.dark .slider:before {
+.darkmode .slider:before {
   background-color: var(--background);
 }
 
