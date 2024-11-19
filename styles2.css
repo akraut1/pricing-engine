@@ -53,15 +53,37 @@ body {
     right: 20px;
 }
 
-#theme-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
+.theme-toggle {
+    position: fixed;
+    top: 20px;          /* Position from top */
+    right: 20px;        /* Position from right */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 9999;      /* Ensure it's above other elements */
+    background: transparent; /* Remove white background */
 }
 
-.sun-icon, .moon-icon {
-    display: none;
+.theme-icon {
+    width: 15px;
+    height: 15px;
+    transition: opacity 0.3s ease;
+}
+
+.sun-icon {
+    opacity: 1;
+}
+
+.moon-icon {
+    opacity: 0;
+}
+
+.dark .sun-icon {
+    opacity: 0;
+}
+
+.dark .moon-icon {
+    opacity: 1;
 }
 
 [data-theme="light"] .sun-icon,
