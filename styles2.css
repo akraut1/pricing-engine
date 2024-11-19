@@ -1,5 +1,4 @@
-:root,
-body .light-mode {
+:root {
     --background: hsla(0, 0%, 100%, 1);
     --foreground: hsla(240, 10%, 3.9%, 1);
     --hover-background: hsla(240 5.9% 90%, 1);
@@ -32,8 +31,7 @@ body .light-mode {
     --slot-text: hsla(240, 5.9%, 10%, 1);
 }
 
-.dark-mode,
-body .dark-mode {
+:root .dark-mode {
     --background: hsla(240, 10%, 3.9%, 1);
     --foreground: hsla(0, 0%, 98%, 1);
     --hover-background: hsla(240, 3.7%, 15.9%, 1);
@@ -68,7 +66,7 @@ body .dark-mode {
     padding: 0;
     box-sizing: border-box;
     font-family: system-ui, -apple-system, sans-serif;
-    transition: all var(--transition-speed) ease-in-out;
+    transition: background-color var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed) ease-in-out;
 }
 
 body {
@@ -76,6 +74,33 @@ body {
     min-height: 100vh;
     background-color: var(--background);
     color: var(--foreground);
+}
+
+#theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--foreground);
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 10;
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+:root:not(.dark-mode) #theme-toggle .moon-icon,
+:root.dark-mode #theme-toggle .sun-icon {
+  display: none;
+}
+
+:root:not(.dark-mode) #theme-toggle .sun-icon,
+:root.dark-mode #theme-toggle .moon-icon {
+  display: block;
 }
 
 .sidebar {
@@ -250,34 +275,6 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.theme-toggle {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: none;
-    border: none;
-    color: var(--foreground);
-    cursor: pointer;
-    font-size: 1.5rem;
-    z-index: 10;
-}
-
-.theme-toggle button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--primary);
-}
-
-.theme-toggle svg {
-  width: 20px;
-  height: 20px;
-}
-
-.dark-mode .theme-toggle {
-    color: var(--foreground);
 }
 
 .toggle-sidebar {
