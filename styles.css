@@ -70,12 +70,12 @@
 
 body {
   margin: 0;
-	width: 100vw;
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   font-family: 'Inter', sans-serif;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
@@ -83,48 +83,47 @@ body {
 }
 
 label {
-	width: 500px;
-	height: 200px;
-	position: relative;
-	display: block;
-	background: #ebebeb;
-	border-radius: 200px;
-	box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
-		inset 0px -5px 15px rgba(255, 255, 255, 0.4);
-	cursor: pointer;
-	transition: 0.3s;
+  width: 500px;
+  height: 200px;
+  position: relative;
+  display: block;
+  background: #ebebeb;
+  border-radius: 200px;
+  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 label:after {
-		content: "";
-		width: 180px;
-		height: 180px;
-		position: absolute;
-		top: 10px;
-		left: 10px;
-		background: linear-gradient(180deg, hsla(38, 100%, 76%, 1), hsla(38, 89%, 41%, 1));
-		border-radius: 180px;
-		box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-		transition: 0.3s;
-	}
+  content: "";
+  width: 180px;
+  height: 180px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: linear-gradient(180deg, hsla(38, 100%, 76%, 1), hsla(38, 89%, 41%, 1));
+  border-radius: 180px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
 
 label svg {
-		position: absolute;
-		width: 120px;
-		top: 40px;
-		z-index: 100;
+  position: absolute;
+  width: 120px;
+  top: 40px;
+  z-index: 100;
 }
 
 label .sun {
-		left: 40px;
-		fill: #fff;
-		transition: 0.3s;
+  left: 40px;
+  fill: #fff;
+  transition: 0.3s;
 }
 
 label .moon {
-		left: 340px;
-		fill: hsl(0, 0%, 49%);
-		transition: 0.3s;
+  left: 340px;
+  fill: hsl(0, 0%, 49%);
+  transition: 0.3s;
 }
 
 /* Updated Toggle-Specific Input Styles */
@@ -166,7 +165,7 @@ label .moon {
 }
 
 .darkmode-container #darkmode-toggle:checked + label + .background {
-    background: hsl(0, 0%, 14.1%);
+  background: hsl(0, 0%, 14.1%);
 }
 
 /* Toggle Theme */
