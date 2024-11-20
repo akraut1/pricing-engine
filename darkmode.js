@@ -1,36 +1,26 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const darkModeToggle = document.querySelector('#darkmode-container-toggle');
-  const body = document.body;
+    const darkModeToggle = document.querySelector('#darkmode-toggle');
+    const bodyElement = document.body;
 
-  // Load the saved theme from localStorage
-  let darkMode = localStorage.getItem('darkMode');
+    // Load the saved theme from localStorage
+    const darkMode = localStorage.getItem('darkMode');
 
-  const enableDarkMode = () => {
-    body.classList.add('darkmode');
-    localStorage.setItem('darkMode', 'enabled');
-  };
+    if (darkMode === 'enabled') {
+        bodyElement.classList.add('darkmode');
+        darkModeToggle.checked = true;
+    } else {
+        bodyElement.classList.remove('darkmode');
+        darkModeToggle.checked = false;
+    }
 
-  const disableDarkMode = () => {
-    body.classList.remove('darkmode');
-    localStorage.setItem('darkMode', 'disabled');
-  };
-
-  // Apply the saved theme
-  if (darkMode === 'enabled') {
-    enableDarkMode();
-    darkModeToggle.checked = true;
-  }
-
-  // Add event listener for toggle
-  if (darkModeToggle) {
+    // Toggle dark mode on checkbox change
     darkModeToggle.addEventListener('change', function () {
-      if (this.checked) {
-        enableDarkMode();
-      } else {
-        disableDarkMode();
-      }
+        if (this.checked) {
+            bodyElement.classList.add('darkmode');
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            bodyElement.classList.remove('darkmode');
+            localStorage.setItem('darkMode', 'disabled');
+        }
     });
-  } else {
-    console.error('Dark mode toggle not found in the form.');
-  }
 });
