@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+/* Reset and Universal Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+
+/* CSS Variables for Light Mode */
 :root {
   --background: hsl(0 0% 100);
   --foreground: hsl(240 10% 3.9%);
@@ -51,7 +60,8 @@
   --border-width-border-2: 2px;
 }
 
-.darkmode {
+/* Dark Mode Variables */
+body.darkmode {
   --background: hsl(240 10% 3.9%);
   --foreground: hsl(0 0% 98%);
   --card: hsl(240 10% 3.9%);
@@ -80,114 +90,120 @@
     hsl(var(--background));
 }
 
+/* Body Styles */
 body {
-  margin: 0;
-  display: flex;
-  justify-content: center;
   font-family: 'Inter', sans-serif;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
-  transition: background-color 0.3s ease, color 0.3s ease;
+	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.darkmode body {
-  background-color: hsl(var(--dashboard-background));
-  color: hsl(var(--foreground));
+/* Dark Mode Toggle Container */
+#darkmode-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000; /* Ensure it stays on top */
 }
 
-/* Toggle-Specific Input Styles */
-
-#darkmode-container * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    transition: 0.5s;
-}
-
+/* Hide the Checkbox */
 #darkmode-container input {
-    display: none;
+  display: none;
 }
 
-#darkmode-container .display {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: white;
+/* Toggle Label Styling */
+#darkmode-container .toggle-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 30px;
+  background: #F3F3F3;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
+  position: relative;
 }
 
-#darkmode-container label {
-    width: 400px;
-    height: 200px;
-    border-radius: 999px;
-    background: #F3F3F3;
-    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.05) inset;
-    cursor: pointer;
-    position: relative;
-}
-
+/* Circle Styling */
 #darkmode-container .circle {
-    width: 160px;
-    height: 160px;
-    border-radius: 99px;
-    background: white;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.05),
-    -10px -10px 30px rgba(0, 0, 0, 0.05) inset;
-    position: absolute;
-    top: 50%;
-    left: 0%;
-    transform: translate(10%, -50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s ease, background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
+/* SVG Icons */
 #darkmode-container svg {
-    width: 80px;
-    position: absolute;
+  width: 16px;
+  position: absolute;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 #darkmode-container .sun {
-    color: #FFD600;
-    margin-top: 0%;
-    opacity: 1;
+  color: #FFD600;
+  margin-top: 0%;
+  opacity: 1;
 }
 
 #darkmode-container .moon {
-    margin-top: -150%;
-    color: white;
-    opacity: 0;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(-100%);
 }
 
-#darkmode-container input[type=checkbox]:checked + .display {
-    background: #2C2C2F;
+/* Dark Mode Styles */
+#darkmode-container input[type=checkbox]:checked + .toggle-label {
+  background: #1F1F21;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5) inset;
 }
 
-#darkmode-container input[type=checkbox]:checked + .display label {
-    background: #1F1F21;
-    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5) inset;
+#darkmode-container input[type=checkbox]:checked + .toggle-label .circle {
+	transform: translateX(30px);
+	background: #2C2C2F;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5),
+  -10px -10px 30px rgba(0, 0, 0, 0.5) inset;
 }
 
-#darkmode-container input[type=checkbox]:checked + .display label .circle {
-    left: 100%;
-    transform: translate(-110%, -50%);
-    background: #2C2C2F;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5),
-    -10px -10px 30px rgba(0, 0, 0, 0.5) inset;
+#darkmode-container input[type=checkbox]:checked + .toggle-label .circle .sun {
+  opacity: 0;
+  transform: translateY(100%);
 }
 
-#darkmode-container input[type=checkbox]:checked + .display label .circle .sun {
-    margin-top: 150%;
-    opacity: 0;
+#darkmode-container input[type=checkbox]:checked + .toggle-label .circle .moon {
+  opacity: 1;
+  transform: translateY(0%);
 }
 
-#darkmode-container input[type=checkbox]:checked + .display label .circle .moon {
-    margin-top: 0%;
-    opacity: 1;
+/* Active State */
+#darkmode-container .toggle-label:active .circle {
+  width: 200px;
 }
 
-#darkmode-container label:active .circle {
-    width: 200px;
+/* Responsive Toggle Design */
+@media (max-width: 600px) {
+  #darkmode-container .toggle-label {
+      width: 50px;
+      height: 25px;
+  }
+
+  #darkmode-container .circle {
+      width: 20px;
+      height: 20px;
+  }
+
+  #darkmode-container svg {
+      width: 14px;
+  }
 }
+
