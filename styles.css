@@ -92,6 +92,11 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.darkmode body {
+  background-color: hsl(var(--dashboard-background));
+  color: hsl(var(--foreground));
+}
+
 /* Toggle-Specific Input Styles */
 
 #darkmode-container * {
