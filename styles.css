@@ -95,7 +95,7 @@ body {
   font-family: 'Inter', sans-serif;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
-	transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Dark Mode Toggle Container */
@@ -145,7 +145,7 @@ body {
 
 /* SVG Icons */
 #darkmode-container svg {
-  width: 16px;
+  width: 30px;
   position: absolute;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
@@ -169,8 +169,8 @@ body {
 }
 
 #darkmode-container input[type=checkbox]:checked + .toggle-label .circle {
-	transform: translateX(30px);
-	background: #2C2C2F;
+  transform: translateX(30px);
+  background: #2C2C2F;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5),
   -10px -10px 30px rgba(0, 0, 0, 0.5) inset;
 }
