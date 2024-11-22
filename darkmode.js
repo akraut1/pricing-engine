@@ -1,39 +1,56 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const darkModeToggle = document.querySelector('#darkmode-toggle');
-    const htmlElement = document.documentElement;
+    // Select the dark mode toggle using its ID
+    const darkModeSwitch = document.querySelector('#darkmode-toggle');
+    const bodyElement = document.body;
 
-    console.log('Dark Mode Toggle Element:', darkModeToggle);
-    console.log('HTML Element:', htmlElement);
+    // Function to toggle dark mode
+    function toggleDarkMode() {
+        // Check if dark mode is currently enabled
+        const isDarkMode = bodyElement.classList.contains('darkmode');
 
-    if (!darkModeToggle) {
-        console.error('Dark mode toggle element not found!');
-        return;
-    }
-
-    // Load the saved theme from localStorage
-    const darkMode = localStorage.getItem('darkMode');
-    console.log('Saved Dark Mode:', darkMode);
-
-    if (darkMode === 'enabled') {
-        htmlElement.classList.add('darkmode');
-        darkModeToggle.checked = true;
-        console.log('Dark mode enabled on load');
-    } else {
-        htmlElement.classList.remove('darkmode');
-        darkModeToggle.checked = false;
-        console.log('Dark mode disabled on load');
-    }
-
-    // Toggle dark mode on checkbox change
-    darkModeToggle.addEventListener('change', function () {
-        if (this.checked) {
-            htmlElement.classList.add('darkmode');
-            localStorage.setItem('darkMode', 'enabled');
-            console.log('Dark mode toggled on');
+        if (isDarkMode) {
+            // Disable dark mode
+            bodyElement.classList.remove('darkmode');
+            localStorage.setItem('theme', 'light');
+            console.log('Dark mode disabled');
         } else {
-            htmlElement.classList.remove('darkmode');
-            localStorage.setItem('darkMode', 'disabled');
-            console.log('Dark mode toggled off');
+            // Enable dark mode
+            bodyElement.classList.add('darkmode');
+            localStorage.setItem('theme', 'dark');
+            console.log('Dark mode enabled');
         }
-    });
+    }
+
+    // Retrieve the saved theme from localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        if (savedTheme === 'dark') {
+            bodyElement.classList.add('darkmode');
+            darkModeSwitch.checked = true;
+            console.log('Dark mode applied from localStorage');
+        } else {
+            bodyElement.classList.remove('darkmode');
+            darkModeSwitch.checked = false;
+            console.log('Light mode applied from localStorage');
+        }
+    } else {
+        // If no theme is saved, use the system preference
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (prefersDark) {
+            bodyElement.classList.add('darkmode');
+            darkModeSwitch.checked = true;
+            console.log('Dark mode applied from system preference');
+        } else {
+            bodyElement.classList.remove('darkmode');
+            darkModeSwitch.checked = false;
+            console.log('Light mode applied from system preference');
+        }
+    }
+
+    // Add event listener to the toggle switch if it exists
+    if (darkModeSwitch) {
+        darkModeSwitch.addEventListener('change', toggleDarkMode);
+    } else {
+        console.error('Dark mode toggle element not found! Ensure it has the correct ID ("darkmode-toggle").');
+    }
 });
