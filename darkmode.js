@@ -5,18 +5,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to toggle dark mode
     function toggleDarkMode() {
-        // Check if dark mode is currently enabled
         const isDarkMode = bodyElement.classList.contains('darkmode');
 
         if (isDarkMode) {
             // Disable dark mode
             bodyElement.classList.remove('darkmode');
             localStorage.setItem('theme', 'light');
+            darkModeSwitch.setAttribute('aria-pressed', 'false');
             console.log('Dark mode disabled');
         } else {
             // Enable dark mode
             bodyElement.classList.add('darkmode');
             localStorage.setItem('theme', 'dark');
+            darkModeSwitch.setAttribute('aria-pressed', 'true');
             console.log('Dark mode enabled');
         }
     }
@@ -27,10 +28,12 @@ document.addEventListener('DOMContentLoaded', function () {
         if (savedTheme === 'dark') {
             bodyElement.classList.add('darkmode');
             darkModeSwitch.checked = true;
+            darkModeSwitch.setAttribute('aria-pressed', 'true');
             console.log('Dark mode applied from localStorage');
         } else {
             bodyElement.classList.remove('darkmode');
             darkModeSwitch.checked = false;
+            darkModeSwitch.setAttribute('aria-pressed', 'false');
             console.log('Light mode applied from localStorage');
         }
     } else {
@@ -39,10 +42,12 @@ document.addEventListener('DOMContentLoaded', function () {
         if (prefersDark) {
             bodyElement.classList.add('darkmode');
             darkModeSwitch.checked = true;
+            darkModeSwitch.setAttribute('aria-pressed', 'true');
             console.log('Dark mode applied from system preference');
         } else {
             bodyElement.classList.remove('darkmode');
             darkModeSwitch.checked = false;
+            darkModeSwitch.setAttribute('aria-pressed', 'false');
             console.log('Light mode applied from system preference');
         }
     }
