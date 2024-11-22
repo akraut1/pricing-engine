@@ -185,11 +185,6 @@ body {
   transform: translateY(0%);
 }
 
-/* Active State */
-#darkmode-container .toggle-label:active .circle {
-  width: 200px;
-}
-
 /* Responsive Toggle Design */
 @media (max-width: 600px) {
   #darkmode-container .toggle-label {
