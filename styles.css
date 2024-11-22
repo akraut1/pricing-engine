@@ -50,6 +50,10 @@
   ),
     linear-gradient(0deg, hsl(var(--muted)) 0%, hsl(var(--muted)) 100%),
     hsl(var(--background));
+  --toggle-background: #ccc;
+  --toggle-background-checked: #1F1F21;
+  --toggle-switch-background: #fff;
+  --toggle-switch-background-checked: #2C2C2F;
   --width-w-9: 36px;
   --height-h-5: 20px;
   --width-w-4: 16px;
@@ -88,6 +92,10 @@ body.darkmode {
   ),
     linear-gradient(0deg, hsl(var(--muted)) 0%, hsl(var(--muted)) 100%),
     hsl(var(--background));
+  --toggle-background: #333;
+  --toggle-background-checked: #1F1F21;
+  --toggle-switch-background: #2C2C2F;
+  --toggle-switch-background-checked: #fff;
 }
 
 /* Body Styles */
@@ -113,30 +121,27 @@ body {
 
 /* Toggle Label Styling */
 #darkmode-container .toggle-label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 30px;
-  background: #F3F3F3;
-  border-radius: 15px;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  transition: background 0.3s ease;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  background: var(--toggle-background);
+  border-radius: 25px;
   position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 /* Circle Styling */
 #darkmode-container .circle {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   position: absolute;
-  top: 2px;
-  left: 2px;
-  transition: transform 0.3s ease, background 0.3s ease;
+  top: 2.5px;
+  left: 2.5px;
+  width: 20px;
+  height: 20px;
+  background: var(--toggle-switch-background);
+  border-radius: 50%;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -144,16 +149,17 @@ body {
 }
 
 /* SVG Icons */
-#darkmode-container svg {
-  width: 30px;
-  position: absolute;
+#darkmode-container .sun,
+#darkmode-container .moon {
+  width: 16px;
+  height: 16px;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 #darkmode-container .sun {
   color: #FFD600;
-  margin-top: 0%;
   opacity: 1;
+  transform: translateY(0%);
 }
 
 #darkmode-container .moon {
@@ -162,43 +168,62 @@ body {
   transform: translateY(-100%);
 }
 
-/* Dark Mode Styles */
-#darkmode-container input[type=checkbox]:checked + .toggle-label {
-  background: #1F1F21;
-  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5) inset;
+/* Toggle Checked State */
+#darkmode-container input:checked + .toggle-label {
+  background: var(--toggle-background-checked);
 }
 
-#darkmode-container input[type=checkbox]:checked + .toggle-label .circle {
-  transform: translateX(30px);
-  background: #2C2C2F;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5),
-  -10px -10px 30px rgba(0, 0, 0, 0.5) inset;
+#darkmode-container input:checked + .toggle-label .circle {
+  transform: translateX(25px);
+  background: var(--toggle-switch-background-checked);
 }
 
-#darkmode-container input[type=checkbox]:checked + .toggle-label .circle .sun {
+#darkmode-container input:checked + .toggle-label .circle .sun {
   opacity: 0;
   transform: translateY(100%);
 }
 
-#darkmode-container input[type=checkbox]:checked + .toggle-label .circle .moon {
+#darkmode-container input:checked + .toggle-label .circle .moon {
   opacity: 1;
   transform: translateY(0%);
+}
+
+/* Optional: Hover Effects */
+#darkmode-container .toggle-label:hover {
+  background: #b3b3b3;
+}
+
+#darkmode-container input:checked + .toggle-label:hover {
+  background: #333333;
+}
+
+/* Focus Styles for Accessibility */
+#darkmode-container input:focus + .toggle-label {
+    box-shadow: 0 0 0 3px rgba(100, 150, 250, 0.5);
 }
 
 /* Responsive Toggle Design */
 @media (max-width: 600px) {
   #darkmode-container .toggle-label {
-      width: 50px;
-      height: 25px;
-  }
-
-  #darkmode-container .circle {
-      width: 20px;
+      width: 40px;
       height: 20px;
   }
 
-  #darkmode-container svg {
-      width: 14px;
+  #darkmode-container .circle {
+      width: 16px;
+      height: 16px;
+      top: 2px;
+      left: 2px;
+  }
+
+  #darkmode-container input:checked + .toggle-label .circle {
+      transform: translateX(20px);
+  }
+
+  #darkmode-container .sun,
+  #darkmode-container .moon {
+      width: 12px;
+      height: 12px;
   }
 }
 
