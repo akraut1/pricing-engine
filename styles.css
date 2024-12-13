@@ -1,199 +1,190 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* Reset and Universal Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  transition: 0.3s;
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
 }
 
-:root {
-  --background: hsl(0 0% 100%);
-  --foreground: hsl(240 10% 3.9%);
-  --card: hsl(0 0% 100%);
-  --card-foreground: hsl(240 10% 3.9%);
-  --popover: hsl(0 0% 100%);
-  --popover-foreground: hsl(240 10% 3.9%);
-  --primary: hsl(240 5.9% 10%);
-  --primary-foreground: hsl(0 0% 98%);
-  --secondary: hsl(240 4.8% 95.9%);
-  --secondary-foreground: hsl(240 5.9% 10%);
-  --muted: hsl(240 4.8% 95.9%);
-  --muted-foreground: hsl(240 3.8% 46.1%);
-  --accent: hsl(240 4.8% 95.9%);
-  --accent-foreground: hsl(240 5.9% 10%);
-  --destructive: hsl(0 84.2% 60.2%);
-  --destructive-foreground: hsl(0 0% 98%);
-  --border: hsl(240 5.9% 90%);
-  --input: hsl(240 5.9% 90%);
-  --ring: hsl(240 10% 3.9%);
-  --radius: 0.5rem;
-  --chart-1: hsl(12 76% 61%);
-  --chart-2: hsl(173 58% 39%);
-  --chart-3: hsl(197 37% 24%);
-  --chart-4: hsl(43 74% 66%);
-  --chart-5: hsl(27 87% 67%);
-  --sidebar-foreground: hsl(240 5% 26%);
-  --sidebar-background: hsl(0 0% 98%);
-  --sidebar-primary: hsl(240 6% 10%);
-  --sidebar-primary-foreground: hsl(0 0% 98%);
-  --sidebar-accent: hsl(240 4.8% 95.9%);
-  --sidebar-accent-foreground: hsl(240 5.9% 10%);
-  --sidebar-border: hsl(220 13% 91%);
-  --sidebar-ring: hsl(240 5% 65%);
-  --dashboard-background: linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 0.6) 0%,
-    rgba(255, 255, 255, 0.6) 100%
-  ),
-    linear-gradient(0deg, hsl(var(--muted)) 0%, hsl(var(--muted)) 100%),
-    hsl(var(--background));
-  --toggle-background: #ccc;
-  --toggle-background-checked: #1F1F21;
-  --toggle-switch-background: #fff;
-  --toggle-switch-background-checked: #2C2C2F;
-  --width-w-9: 36px;
-  --height-h-5: 20px;
-  --width-w-4: 16px;
-  --height-h-4: 16px;
-  --spacing-0: 0px;
-  --spacing-0-5: 2px;
-  --border-radius-full: 9999px;
-  --border-width-border-2: 2px;
+[data-feathery-id="container-page"],
+[data-feathery-id="container-page"] * {
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
-.dark {
-  --background: hsl(240 10% 3.9%);
-  --foreground: hsl(0 0% 98%);
-  --card: hsl(240 10% 3.9%);
-  --card-foreground: hsl(0 0% 98%);
-  --popover: hsl(240 10% 3.9%);
-  --popover-foreground: hsl(0 0% 98%);
-  --primary: hsl(0 0% 98%);
-  --primary-foreground: hsl(240 5.9% 10%);
-  --secondary: hsl(240 3.7% 15.9%);
-  --secondary-foreground: hsl(0 0% 98%);
-  --muted: hsl(240 3.7% 15.9%);
-  --muted-foreground: hsl(240 5% 64.9%);
-  --accent: hsl(240 3.7% 15.9%);
-  --accent-foreground: hsl(0 0% 98%);
-  --destructive: hsl(0 62.8% 30.6%);
-  --destructive-foreground: hsl(0 0% 98%);
-  --border: hsl(240 3.7% 15.9%);
-  --input: hsl(240 3.7% 15.9%);
-  --ring: hsl(240 4.9% 83.9%);
-  --dashboard-background: linear-gradient(
-    0deg,
-    rgba(9, 9, 11, 0.6) 0%,
-    rgba(9, 9, 11, 0.6) 100%
-  ),
-    linear-gradient(0deg, hsl(var(--muted)) 0%, hsl(var(--muted)) 100%),
-    hsl(var(--background));
-  --toggle-background: #333;
-  --toggle-background-checked: #1F1F21;
-  --toggle-switch-background: #2C2C2F;
-  --toggle-switch-background-checked: #fff;
-}
-
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+[data-feathery-id="container-page"] {
+  font-family: 'Inter', sans-serif;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  transition: background-color 0.3s, color 0.3s;
+}
+
+.combobox-container {
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto;
 }
 
 .combobox {
   position: relative;
+  width: 100%;
 }
 
-#combobox-trigger {
+.combobox-trigger {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 200px;
+  justify-content: space-between;
+  width: 100%;
   padding: 0.5rem;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius);
-  cursor: pointer;
   font-size: 0.875rem;
   line-height: 1.25rem;
+  font-weight: 500;
+  text-align: left;
+  outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-#combobox-trigger:hover {
-  border-color: hsl(var(--ring));
-}
-
-#combobox-trigger:focus {
-  outline: none;
+.combobox-trigger:focus {
   box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring));
 }
 
-.popover {
+.combobox-content {
   display: none;
   position: absolute;
-  width: 200px;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  margin-top: 0.5rem;
   background-color: hsl(var(--popover));
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius);
-  box-shadow: 0 2px 10px hsl(var(--muted) / 0.1);
-  margin-top: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
 }
 
-.command-input {
-  width: 100%;
+.combobox-command {
+  display: flex;
+  align-items: center;
   padding: 0.5rem;
-  border: none;
   border-bottom: 1px solid hsl(var(--border));
-  background-color: transparent;
-  color: hsl(var(--foreground));
-  font-size: 0.875rem;
-  line-height: 1.25rem;
 }
 
-.command-input::placeholder {
+.search-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
   color: hsl(var(--muted-foreground));
 }
 
-.command-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  max-height: 300px;
-  overflow-y: auto;
+.combobox-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 0.875rem;
+  color: hsl(var(--foreground));
 }
 
-.command-item {
+.combobox-input::placeholder {
+  color: hsl(var(--muted-foreground));
+}
+
+.combobox-options {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 0.5rem 0;
+  margin: 0;
+  list-style: none;
+}
+
+.combobox-option {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 0.5rem;
   cursor: pointer;
+  user-select: none;
+  font-size: 0.875rem;
+  color: hsl(var(--foreground));
   transition: background-color 0.2s;
 }
 
-.command-item:hover {
+.combobox-option:hover,
+.combobox-option[aria-selected="true"] {
   background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
 }
 
-.check {
+.combobox-option .check {
+  width: 1rem;
+  height: 1rem;
   opacity: 0;
   transition: opacity 0.2s;
 }
 
-.command-item[aria-selected="true"] .check {
+.combobox-option[aria-selected="true"] .check {
   opacity: 1;
 }
 
-.chevrons-up-down {
-  opacity: 0.5;
+.chevron-down {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.2s;
 }
 
+[aria-expanded="true"] .chevron-down {
+  transform: rotate(180deg);
+}
