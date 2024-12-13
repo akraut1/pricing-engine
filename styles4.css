@@ -43,9 +43,7 @@
   --ring: 240 4.9% 83.9%;
 }
 
-html, 
-body,
-[data-feathery-id="page-container"] {
+html, body, [data-feathery-id="page-container"] {
   background-color: hsl(var(--background)) !important;
   color: hsl(var(--foreground)) !important;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -137,17 +135,12 @@ body {
   transition: border-color 0.3s ease;
 }
 
-.feathery-form {
+.feathery-form,
+.feathery-form-wrapper,
+[data-feathery-id="page-container"] {
   background-color: hsl(var(--background)) !important;
   color: hsl(var(--foreground)) !important;
-}
-
-.feathery-form-wrapper {
-  margin-left: 260px;
-  transition: margin-left 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-  padding: 20px;
-  background-color: hsl(var(--background)) !important;
-  color: hsl(var(--foreground)) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .sidebar.collapsed + .feathery-form-wrapper {
@@ -166,5 +159,4 @@ body {
   font-size: 24px;
   transition: color 0.3s ease;
 }
-
 
