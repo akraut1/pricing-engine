@@ -35,8 +35,7 @@
   --text-extra-small-leading-normal-underlined-letter-spacing: 0px;
   --text-extra-small-leading-normal-underlined-line-height: 16px;
   --text-extra-small-leading-normal-underlined-font-style: normal;
-  --text-extra-small-leading-normal-strikethrough-font-family: "Inter",
-    Helvetica;
+  --text-extra-small-leading-normal-strikethrough-font-family: "Inter", Helvetica;
   --text-extra-small-leading-normal-strikethrough-font-weight: 400;
   --text-extra-small-leading-normal-strikethrough-font-size: 12px;
   --text-extra-small-leading-normal-strikethrough-letter-spacing: 0px;
@@ -384,8 +383,7 @@
   --text-extra-large-leading-normal-underlined-letter-spacing: 0px;
   --text-extra-large-leading-normal-underlined-line-height: 28px;
   --text-extra-large-leading-normal-underlined-font-style: normal;
-  --text-extra-large-leading-normal-strikethrough-font-family: "Inter",
-    Helvetica;
+  --text-extra-large-leading-normal-strikethrough-font-family: "Inter", Helvetica;
   --text-extra-large-leading-normal-strikethrough-font-weight: 400;
   --text-extra-large-leading-normal-strikethrough-font-size: 20px;
   --text-extra-large-leading-normal-strikethrough-letter-spacing: 0px;
@@ -685,6 +683,7 @@
   --text-4x-large-leading-none-strikethrough-letter-spacing: 0px;
   --text-4x-large-leading-none-strikethrough-line-height: 100%;
   --text-4x-large-leading-none-strikethrough-font-style: normal;
+  
   --shadow-sm: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
   --shadow-base: 0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 3px 0px
     rgba(0, 0, 0, 0.1);
