@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+/* Reset default styles that might be interfering */
+.theme-switcher-wrapper *,
+.theme-switcher-wrapper *::before,
+.theme-switcher-wrapper *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -22,11 +31,6 @@
     --input: 240 5.9% 90%;
     --ring: 240 5.9% 10%;
     --radius: 0.5rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
   }
 
   .dark {
@@ -49,83 +53,142 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
   }
 }
 
-[data-feathery-id="container-page"],
-[data-feathery-id="container-page"] * {
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-}
-
-[data-feathery-id="container-page"] {
-  font-family: 'Inter', sans-serif;
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-}
-
-.theme-switcher-wrapper {
+/* Increase specificity for Feathery form elements */
+[data-feathery-id="container-page"] .theme-switcher-wrapper {
   width: 100%;
   max-width: 300px;
   margin: 20px auto;
+  font-family: 'Inter', sans-serif;
 }
 
-.combobox {
+[data-feathery-id="container-page"] .combobox {
   position: relative;
   width: 100%;
 }
 
-.combobox-trigger {
-  width: 100%;
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-  border: 1px solid hsl(var(--border));
+[data-feathery-id="container-page"] .combobox-trigger {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  padding: 0.5rem !important;
+  background-color: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: var(--radius) !important;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+  font-weight: 500 !important;
+  text-align: left !important;
+  outline: none !important;
+  transition: all 0.2s !important;
+  min-height: 40px !important;
 }
 
-.combobox-trigger:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px hsl(var(--ring));
+[data-feathery-id="container-page"] .combobox-trigger:focus {
+  box-shadow: 0 0 0 2px hsl(var(--ring)) !important;
+  border-color: hsl(var(--ring)) !important;
 }
 
-.combobox-content {
+[data-feathery-id="container-page"] .combobox-content {
   display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: hsl(var(--popover));
-  border: 1px solid hsl(var(--border));
-  z-index: 10;
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  width: 100% !important;
+  margin-top: 0.5rem !important;
+  background-color: hsl(var(--popover)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+  z-index: 50 !important;
 }
 
-.combobox-input {
-  width: 100%;
-  background: transparent;
-  color: hsl(var(--foreground));
+[data-feathery-id="container-page"] .combobox-command {
+  display: flex !important;
+  align-items: center !important;
+  padding: 0.5rem !important;
+  border-bottom: 1px solid hsl(var(--border)) !important;
 }
 
-.combobox-input::placeholder {
-  color: hsl(var(--muted-foreground));
+[data-feathery-id="container-page"] .search-icon {
+  width: 1rem !important;
+  height: 1rem !important;
+  margin-right: 0.5rem !important;
+  color: hsl(var(--muted-foreground)) !important;
+  flex-shrink: 0 !important;
 }
 
-.combobox-option {
-  color: hsl(var(--foreground));
+[data-feathery-id="container-page"] .combobox-input {
+  width: 100% !important;
+  height: 2.5rem !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  padding: 0.5rem !important;
+  font-size: 0.875rem !important;
+  color: hsl(var(--foreground)) !important;
 }
 
-.combobox-option:hover,
-.combobox-option[aria-selected="true"] {
-  background-color: hsl(var(--accent));
-  color: hsl(var(--accent-foreground));
+[data-feathery-id="container-page"] .combobox-input::placeholder {
+  color: hsl(var(--muted-foreground)) !important;
 }
 
-.combobox-option .check {
-  opacity: 0;
+[data-feathery-id="container-page"] .combobox-options {
+  max-height: 200px !important;
+  overflow-y: auto !important;
+  padding: 0.5rem 0 !important;
+  margin: 0 !important;
+  list-style: none !important;
 }
 
-.combobox-option[aria-selected="true"] .check {
-  opacity: 1;
+[data-feathery-id="container-page"] .combobox-option {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0.5rem 0.75rem !important;
+  padding-left: 2rem !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  font-size: 0.875rem !important;
+  color: hsl(var(--foreground)) !important;
+  transition: background-color 0.2s !important;
+}
+
+[data-feathery-id="container-page"] .combobox-option:hover {
+  background-color: hsl(var(--accent)) !important;
+  color: hsl(var(--accent-foreground)) !important;
+}
+
+[data-feathery-id="container-page"] .combobox-option[aria-selected="true"] {
+  background-color: hsl(var(--accent)) !important;
+  color: hsl(var(--accent-foreground)) !important;
+}
+
+[data-feathery-id="container-page"] .check {
+  position: absolute !important;
+  left: 0.5rem !important;
+  width: 1rem !important;
+  height: 1rem !important;
+  opacity: 0 !important;
+  transition: opacity 0.2s !important;
+}
+
+[data-feathery-id="container-page"] .combobox-option[aria-selected="true"] .check {
+  opacity: 1 !important;
+}
+
+[data-feathery-id="container-page"] .chevron-down {
+  width: 1rem !important;
+  height: 1rem !important;
+  opacity: 0.5 !important;
+  transition: transform 0.2s !important;
+}
+
+[data-feathery-id="container-page"] [aria-expanded="true"] .chevron-down {
+  transform: rotate(180deg) !important;
 }
