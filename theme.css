@@ -49,67 +49,66 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.theme-toggle-btn {
-  position: fixed;
-  background-color: hsl(var(--secondary));
-  color: hsl(var(--secondary-foreground));
+.combobox-trigger:hover {
+  background-color: hsl(var(--accent));
+}
+
+.combobox-trigger:focus {
+  outline: none;
+  ring: 2px solid hsl(var(--ring));
+  ring-offset: 2px;
+}
+
+.combobox-content {
+  display: none;
+  position: absolute;
+  margin-top: 0.5rem;
+  background-color: hsl(var(--background));
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius);
-  padding: 0.5rem;
-  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  z-index: 1000;
+}
+
+.combobox-item {
   display: flex;
   align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  color: hsl(var(--foreground));
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
-.theme-toggle-btn:hover {
-  background-color: hsl(var(--secondary-foreground));
-  color: hsl(var(--secondary));
+.combobox-item:hover {
+  background-color: hsl(var(--accent));
 }
 
-.sun-icon, .moon-icon {
-  width: 1.2rem;
-  height: 1.2rem;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+.combobox-item[data-selected="true"] {
+  background-color: hsl(var(--accent));
 }
 
-.sun-icon {
-  opacity: 1;
-  transform: rotate(0deg) scale(1);
-}
-
-.moon-icon {
-  position: absolute;
+.checkmark {
   opacity: 0;
-  transform: rotate(90deg) scale(0);
 }
 
-.dark .sun-icon {
-  opacity: 0;
-  transform: rotate(-90deg) scale(0);
-}
-
-.dark .moon-icon {
+.combobox-item[data-selected="true"] .checkmark {
   opacity: 1;
-  transform: rotate(0deg) scale(1);
 }
 
-/* Add these styles to change form element colors based on theme */
-.dark input, .dark select, .dark textarea {
-  background-color: hsl(var(--input));
-  color: hsl(var(--input-foreground));
-  border-color: hsl(var(--border));
+.show {
+  display: block;
 }
 
-.dark button {
+.dark combobox {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   border: 1px solid var(--input);
 }
 
-.dark button:hover {
+.dark combobox:hover {
   background-color: hsl(var(--accent));
   color: hsl(var(--foreground));
   border: 1px solid var(--input);
