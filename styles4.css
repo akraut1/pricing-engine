@@ -178,14 +178,15 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-  border: 1px solid hsl(var(--border));
-  border-radius: 9999px;
-  padding: 0.5rem;
-  cursor: pointer;
   width: 2rem;
   height: 2rem;
+  background-color: transparent;
+  border: none;
+  border-radius: 0.5rem;
+  color: hsl(var(--foreground));
+  cursor: pointer;
+  padding: 0.5rem;
+  outline: none;
 }
 
 .theme-toggle-btn:hover {
@@ -193,9 +194,14 @@ button {
   color: hsl(var(--accent-foreground));
 }
 
+.theme-toggle-btn:focus-visible {
+  outline: none;
+  ring: none;
+}
+
 .theme-toggle-btn svg {
-  width: 1rem;
-  height: 1rem;
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 .sun-icon {
@@ -238,4 +244,5 @@ button {
     right: 0.5rem;
   }
 }
+
 
