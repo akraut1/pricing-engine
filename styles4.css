@@ -43,6 +43,18 @@
   --ring: 240 4.9% 83.9%;
 }
 
+html, body {
+  background-color: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
 .sidebar {
   position: fixed;
   left: 0;
@@ -51,68 +63,106 @@
   height: 100vh;
   background: hsl(var(--background));
   color: hsl(var(--foreground));
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   display: flex;
   flex-direction: column;
   padding: 12px;
   box-sizing: border-box;
-  transition: all 0.3s;
   z-index: 1000;
   border-right: 1px solid hsl(var(--border));
+  transition: width 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
+
 .sidebar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
 }
+
 .header-content {
   color: hsl(var(--foreground));
   font-weight: 600;
+  transition: color 0.3s ease;
 }
+
 .collapse-btn {
   background: none;
   border: none;
   color: hsl(var(--muted-foreground));
   cursor: pointer;
   font-size: 20px;
+  transition: color 0.3s ease;
 }
+
 .sidebar.collapsed {
   width: 60px;
 }
+
 .sidebar.collapsed .header-content,
 .sidebar.collapsed .sidebar-content,
 .sidebar.collapsed .user-profile {
   display: none;
 }
+
 .menu-item {
   padding: 8px;
   cursor: pointer;
   border-radius: var(--radius);
   color: hsl(var(--foreground));
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 .menu-item:hover {
   background: hsl(var(--accent));
   color: hsl(var(--accent-foreground));
 }
+
 .submenu {
   margin-left: 24px;
   display: none;
 }
+
 .submenu.active {
   display: block;
 }
+
 .user-profile {
   margin-top: auto;
   display: flex;
   align-items: center;
   border-top: 1px solid hsl(var(--border));
   padding-top: 12px;
+  transition: border-color 0.3s ease;
 }
+
+.feathery-form {
+  background-color: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
 .feathery-form-wrapper {
   margin-left: 260px;
-  transition: margin-left 0.3s;
+  transition: margin-left 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  padding: 20px;
+  background-color: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
 }
+
 .sidebar.collapsed + .feathery-form-wrapper {
   margin-left: 60px;
 }
+
+.dark-mode-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1001;
+  background: none;
+  border: none;
+  color: hsl(var(--foreground));
+  cursor: pointer;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+
