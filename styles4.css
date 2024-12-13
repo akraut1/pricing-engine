@@ -43,152 +43,101 @@
   --ring: 240 4.9% 83.9%;
 }
 
-html, body, [data-feathery-id="page-container"] {
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-  transition: background-color 0.3s ease, color 0.3s ease;
+* {
+  border-color: hsl(var(--border));
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
 }
 
 [data-feathery-id="page-container"],
-[data-feathery-id="page-container"] *,
-[data-feathery-id="page-container"] *::before,
-[data-feathery-id="page-container"] *::after {
+[data-feathery-id="page-container"] * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-[data-feathery-id="page-container"] * {
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground)) !important;
-  border-color: hsl(var(--border));
-}
-
-[data-feathery-id="page-container"] input,
-[data-feathery-id="page-container"] button,
-[data-feathery-id="page-container"] select,
-[data-feathery-id="page-container"] textarea {
-  color: hsl(var(--foreground));
-  background-color: hsl(var(--background));
-  border-color: hsl(var(--border));
-  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
-}
-
-[data-feathery-id="page-container"] button {
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
-}
-
-[data-feathery-id="page-container"] button:hover {
-  background-color: hsl(var(--primary-foreground));
-  color: hsl(var(--primary));
-}
-
-[data-feathery-id="page-container"] label {
-  color: hsl(var(--foreground));
-  transition: color 0.3s ease;
-}
-
 .sidebar {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 260px;
-  height: 100vh;
-  background: hsl(var(--background));
-  color: hsl(var(--foreground));
-  display: flex;
-  flex-direction: column;
-  padding: 12px;
-  box-sizing: border-box;
-  z-index: 1000;
+  background-color: hsl(var(--background));
   border-right: 1px solid hsl(var(--border));
-  transition: width 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-.sidebar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.header-content {
-  color: hsl(var(--foreground));
-  font-weight: 600;
-}
-
-.collapse-btn {
-  background: none;
-  border: none;
-  color: hsl(var(--muted-foreground));
-  cursor: pointer;
-  font-size: 20px;
-}
-
-.sidebar.collapsed {
-  width: 60px;
-}
-
-.sidebar.collapsed .header-content,
-.sidebar.collapsed .sidebar-content,
-.sidebar.collapsed .user-profile {
-  display: none;
 }
 
 .menu-item {
-  padding: 8px;
-  cursor: pointer;
-  border-radius: var(--radius);
   color: hsl(var(--foreground));
 }
 
 .menu-item:hover {
-  background: hsl(var(--accent));
+  background-color: hsl(var(--accent));
   color: hsl(var(--accent-foreground));
 }
 
-.submenu {
-  margin-left: 24px;
-  display: none;
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  padding: 0.5rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.submenu.active {
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 2px hsl(var(--ring) / 0.2);
+}
+
+button {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+  background-color: hsl(var(--primary) / 0.9);
+}
+
+label {
+  color: hsl(var(--foreground));
+  font-weight: 500;
+  margin-bottom: 0.5rem;
   display: block;
 }
 
-.user-profile {
-  margin-top: auto;
-  display: flex;
-  align-items: center;
-  border-top: 1px solid hsl(var(--border));
-  padding-top: 12px;
+.dark-mode-toggle {
+  background-color: transparent;
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--border));
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
 }
 
 .feathery-form-wrapper {
-  margin-left: 260px;
-  transition: margin-left 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-  padding: 20px;
-}
-
-.sidebar.collapsed + .feathery-form-wrapper {
-  margin-left: 60px;
-}
-
-.dark-mode-toggle {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  z-index: 1001;
-  background: none;
-  border: none;
+  background-color: hsl(var(--background));
   color: hsl(var(--foreground));
-  cursor: pointer;
-  font-size: 24px;
 }
+
+/* Add more specific styles for Feathery form elements if needed */
 
 
