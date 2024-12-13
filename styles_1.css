@@ -112,10 +112,10 @@ body {
 }
 
 /* Add styles for Feathery form elements */
-.feathery-form input,
-.feathery-form select,
-.feathery-form textarea,
-.feathery-form button {
+[data-feathery-id="page-container"] input,
+[data-feathery-id="page-container"] select,
+[data-feathery-id="page-container"] textarea,
+[data-feathery-id="page-container"] button {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   border: 1px solid hsl(var(--border));
@@ -124,18 +124,18 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-.feathery-form button {
+[data-feathery-id="page-container"] button {
   background-color: hsl(var(--primary));
   color: hsl(var(--primary-foreground));
   cursor: pointer;
 }
 
-.feathery-form button:hover {
+[data-feathery-id="page-container"] button:hover {
   background-color: hsl(var(--primary-foreground));
   color: hsl(var(--primary));
 }
 
-.feathery-form label {
+[data-feathery-id="page-container"] label {
   color: hsl(var(--foreground));
   transition: color 0.3s ease;
 }
