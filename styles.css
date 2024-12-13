@@ -58,7 +58,12 @@
 }
 
 [data-feathery-id="container-page"],
-[data-feathery-id="container-page"] * {
+[data-feathery-id="container-page"] *,
+[data-feathery-form] *,
+.feathery-field,
+.feathery-field *,
+.feathery-container,
+.feathery-container * {
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
@@ -68,7 +73,23 @@
   color: hsl(var(--foreground));
 }
 
-.combobox-container {
+[data-feathery-id="container-page"] input,
+[data-feathery-id="container-page"] select,
+[data-feathery-id="container-page"] textarea,
+[data-feathery-id="container-page"] button {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  border-color: hsl(var(--border));
+}
+
+.dark [data-feathery-id="container-page"] input[type="text"],
+.dark [data-feathery-id="container-page"] input[type="email"],
+.dark [data-feathery-id="container-page"] input[type="password"],
+.dark [data-feathery-id="container-page"] textarea {
+  background-color: hsl(var(--input));
+}
+
+combobox-container {
   width: 100%;
   max-width: 300px;
   margin: 20px auto;
