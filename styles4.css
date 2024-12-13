@@ -48,44 +48,6 @@
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Update these rules */
-[data-feathery-id="page-container"] {
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-[data-feathery-id="page-container"] * {
-  color: inherit;
-}
-
-/* Add this new rule for better specificity */
-[data-feathery-id="page-container"].dark,
-[data-feathery-id="page-container"].dark * {
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-}
-
-/* Update input styles for better contrast */
-[data-feathery-id="page-container"] input,
-[data-feathery-id="page-container"] select,
-[data-feathery-id="page-container"] textarea {
-  background-color: hsl(var(--input));
-  color: hsl(var(--foreground));
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius);
-  padding: 0.5rem;
-}
-
-/* Ensure text inputs have proper contrast in dark mode */
-[data-feathery-id="page-container"].dark input[type="text"],
-[data-feathery-id="page-container"].dark input[type="email"],
-[data-feathery-id="page-container"].dark input[type="password"],
-[data-feathery-id="page-container"].dark textarea {
-  background-color: hsl(var(--input));
-  color: hsl(var(--foreground));
-}
-
 /* Base styles */
 body {
   background-color: hsl(var(--background));
@@ -116,9 +78,57 @@ button:hover {
 
 /* Sidebar styles */
 .sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 260px;
+  height: 100vh;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   border-right: 1px solid hsl(var(--border));
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  box-sizing: border-box;
+  z-index: 1000;
+  transition: width 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.header-content {
+  color: hsl(var(--foreground));
+  font-weight: 600;
+}
+
+.collapse-btn {
+  background: none;
+  border: none;
+  color: hsl(var(--muted-foreground));
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+}
+
+.sidebar.collapsed .header-content,
+.sidebar.collapsed .sidebar-content,
+.sidebar.collapsed .user-profile {
+  display: none;
+}
+
+.menu-item {
+  padding: 8px;
+  cursor: pointer;
+  border-radius: var(--radius);
+  color: hsl(var(--foreground));
 }
 
 .menu-item:hover {
@@ -126,17 +136,96 @@ button:hover {
   color: hsl(var(--accent-foreground));
 }
 
-/* Dark mode toggle */
-.dark-mode-toggle {
-  background-color: transparent;
-  color: hsl(var(--foreground));
-  border: 1px solid hsl(var(--border));
+.submenu {
+  margin-left: 24px;
+  display: none;
 }
 
-.dark-mode-toggle:hover {
+.submenu.active {
+  display: block;
+}
+
+.user-profile {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid hsl(var(--border));
+  padding-top: 12px;
+}
+
+.feathery-form-wrapper {
+  margin-left: 260px;
+  transition: margin-left 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  padding: 20px;
+}
+
+.sidebar.collapsed + .feathery-form-wrapper {
+  margin-left: 60px;
+}
+
+/* Theme toggle styles */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1001;
+}
+
+.theme-toggle-btn {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: 9999px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
   background-color: hsl(var(--accent));
   color: hsl(var(--accent-foreground));
 }
+
+.theme-toggle-btn svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.sun-icon {
+  display: none;
+}
+
+.dark .moon-icon {
+  display: none;
+}
+
+.dark .sun-icon {
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .feathery-form-wrapper {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .sidebar.collapsed + .feathery-form-wrapper {
+    margin-left: 0;
+  }
+
+  .theme-toggle {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+}
+
 
 /* Add any additional specific styles here */
 
