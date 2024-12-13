@@ -43,12 +43,22 @@
   --ring: 240 4.9% 83.9%;
 }
 
-/* Apply transitions to all elements */
-* {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+/* Base styles */
+:root {
+  color-scheme: light;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
 }
 
-/* Base styles */
+.dark {
+  color-scheme: dark;
+}
+
+/* Global transitions */
+*, *::before, *::after {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
@@ -56,24 +66,18 @@ body {
 }
 
 /* Form elements */
-input, select, textarea, button {
-  background-color: hsl(var(--input));
+input, select, textarea {
+  background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius);
-  padding: 0.5rem;
 }
 
 button {
   background-color: hsl(var(--primary));
   color: hsl(var(--primary-foreground));
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: hsl(var(--primary-foreground));
-  color: hsl(var(--primary));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
 }
 
 /* Sidebar styles */
@@ -91,7 +95,6 @@ button:hover {
   padding: 12px;
   box-sizing: border-box;
   z-index: 1000;
-  transition: width 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .sidebar-header {
@@ -155,8 +158,8 @@ button:hover {
 
 .feathery-form-wrapper {
   margin-left: 260px;
-  transition: margin-left 0.3s ease, background-color 0.3s ease, color 0.3s ease;
   padding: 20px;
+  background-color: hsl(var(--background));
 }
 
 .sidebar.collapsed + .feathery-form-wrapper {
@@ -172,13 +175,17 @@ button:hover {
 }
 
 .theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   border: 1px solid hsl(var(--border));
   border-radius: 9999px;
   padding: 0.5rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  width: 2rem;
+  height: 2rem;
 }
 
 .theme-toggle-btn:hover {
@@ -187,8 +194,8 @@ button:hover {
 }
 
 .theme-toggle-btn svg {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1rem;
+  height: 1rem;
 }
 
 .sun-icon {
@@ -201,6 +208,12 @@ button:hover {
 
 .dark .sun-icon {
   display: block;
+}
+
+/* Ensure Feathery elements inherit theme */
+[data-feathery-id="page-container"] * {
+  background-color: inherit;
+  color: inherit;
 }
 
 /* Responsive adjustments */
@@ -225,7 +238,4 @@ button:hover {
     right: 0.5rem;
   }
 }
-
-
-/* Add any additional specific styles here */
 
