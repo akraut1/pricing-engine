@@ -43,7 +43,9 @@
   --ring: 240 4.9% 83.9%;
 }
 
-html, body {
+html, 
+body,
+[data-feathery-id="page-container"] {
   background-color: hsl(var(--background)) !important;
   color: hsl(var(--foreground)) !important;
   transition: background-color 0.3s ease, color 0.3s ease;
