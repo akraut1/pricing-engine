@@ -71,6 +71,9 @@ body, [data-feathery-id="page-container"] {
 }
 
 .theme-toggle-btn {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
   background-color: hsl(var(--secondary));
   color: hsl(var(--secondary-foreground));
   border: 1px solid hsl(var(--border));
@@ -83,6 +86,7 @@ body, [data-feathery-id="page-container"] {
   width: 2.5rem;
   height: 2.5rem;
   transition: background-color 0.3s ease, color 0.3s ease;
+  z-index: 1000;
 }
 
 .theme-toggle-btn:hover {
