@@ -70,6 +70,9 @@
 }
 
 [data-feathery-id="container-page"] .combobox-trigger {
+  height: 2.25rem !important; /* h-9 */
+  width: 110px !important;
+  margin-left: auto !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
@@ -88,8 +91,16 @@
   min-height: 40px !important;
 }
 
+[data-feathery-id="container-page"] .combobox-trigger > span {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 1 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
 [data-feathery-id="container-page"] .combobox-trigger:focus {
-  box-shadow: 0 0 0 2px hsl(var(--ring)) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring)) !important;
   border-color: hsl(var(--ring)) !important;
 }
 
