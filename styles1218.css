@@ -1,4 +1,4 @@
-/* Theme Variables */
+/* Light theme */
 .light-theme {
   --background: 0 0% 100%;
   --foreground: 240 10% 3.9%;
@@ -22,6 +22,7 @@
   --radius: 0.5rem;
 }
 
+/* Dark theme */
 .dark-theme {
   --background: 240 10% 3.9%;
   --foreground: 0 0% 98%;
@@ -44,80 +45,96 @@
   --ring: 240 4.9% 83.9%;
 }
 
-/* Base Styles */
-body.light-theme,
-body.dark-theme {
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
+body,
+.feathery-form,
+[data-feathery-id="page1"], 
+[data-feathery-id="page1"] * {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    transition: all 0.3s ease;
 }
 
-/* Select Component */
+[data-feathery-id="page1"] button { 
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border-radius: var(--radius);
+    border: 1px solid hsl(var(--border));
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+}
+
+[data-feathery-id="page1"] input {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  padding: 0.5rem;
+}
+
 [data-feathery-id="page1"] select {
-  height: 28px;
-  padding: 0 8px;
-  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 145px;
+  height: 28px; /* h-7 equivalent */
+  padding: 8px 12px;
+  font-size: 12px; /* text-xs equivalent */
   line-height: 1;
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius);
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
-  cursor: pointer;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  outline: none;
 }
 
 [data-feathery-id="page1"] select:focus {
-  outline: none;
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
   border-color: hsl(var(--ring));
-  box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring));
+}
+
+[data-feathery-id="page1"] select:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 [data-feathery-id="page1"] select option {
   background-color: hsl(var(--popover));
   color: hsl(var(--popover-foreground));
-  padding: 8px;
-}
-
-/* Button Component */
-[data-feathery-id="page1"] button {
-  height: 28px;
-  padding: 0 12px;
+  padding: 8px 12px;
   font-size: 12px;
-  font-weight: 500;
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius);
 }
 
-/* Input Component */
-[data-feathery-id="page1"] input {
-  height: 28px;
-  padding: 0 8px;
-  font-size: 12px;
-  background-color: transparent;
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius);
+[data-feathery-id="page1"] select option:hover {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
 }
 
-/* Label Component */
 [data-feathery-id="page1"] label {
-  font-size: 12px;
-  font-weight: 500;
   color: hsl(var(--foreground));
+  font-weight: 500;
 }
 
-/* Interactive States */
-[data-feathery-id="page1"] *:hover {
-  transition-property: color, background-color, border-color;
-  transition-duration: 150ms;
+[data-feathery-id="page1"] .container {
+  background-color: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  padding: 1rem;
 }
 
-[data-feathery-id="page1"] *:focus-visible {
-  outline: none;
-  ring: 2px solid hsl(var(--ring));
-  ring-offset: 2px;
+[data-feathery-id="page1"] input[type="checkbox"],
+[data-feathery-id="page1"] input[type="radio"] {
+  background-color: hsl(var(--background));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
 }
 
-[data-feathery-id="page1"] *:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+[data-feathery-id="page1"] textarea {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  padding: 0.5rem;
 }
