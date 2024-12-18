@@ -1,4 +1,3 @@
-<style>
 /* Light Theme */
 .light-theme {
   --background: 0 0% 100%;
@@ -18,7 +17,7 @@
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 0 0% 98%;
   --border: 240 5.9% 90%;
-  --input: 240 5.9% 90%;
+  --input: 240 5.9% 90%; /* Added for consistency */
   --ring: 240 5.9% 10%;
   --radius: 0.5rem;
 }
@@ -27,12 +26,12 @@
 .dark-theme {
   --background: 240 10% 3.9%;
   --foreground: 0 0% 98%;
-  --card: 240 10% 3.9%;
+  --card: 240 10% 5%;
   --card-foreground: 0 0% 98%;
-  --popover: 240 10% 3.9%;
+  --popover: 240 10% 5%;
   --popover-foreground: 0 0% 98%;
-  --primary: 0 0% 98%;
-  --primary-foreground: 240 5.9% 10%;
+  --primary: 240 6% 20%;
+  --primary-foreground: 0 0% 98%;
   --secondary: 240 3.7% 15.9%;
   --secondary-foreground: 0 0% 98%;
   --muted: 240 3.7% 15.9%;
@@ -41,21 +40,20 @@
   --accent-foreground: 0 0% 98%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
-  --border: 240 3.7% 15.9%;
-  --input: 240 3.7% 15.9%;
-  --ring: 240 4.9% 83.9%;
+  --border: 240 4% 15%;
+  --input: 240 3.7% 15.9%; /* Added to match light theme */
+  --ring: 240 5% 50%;
+  --radius: 0.5rem;
 }
 
 /* Base Styles */
 body,
-.feathery-form,
 [data-feathery-id="page1"],
 [data-feathery-id="page1"] * {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Buttons */
@@ -66,24 +64,28 @@ body,
   border: 1px solid hsl(var(--border));
   padding: 0.5rem 1rem;
   font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 [data-feathery-id="page1"] button:hover {
   background-color: hsl(var(--primary-foreground));
   color: hsl(var(--primary));
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 [data-feathery-id="page1"] button:disabled {
+  background-color: hsl(var(--border));
+  color: hsl(var(--muted-foreground));
   opacity: 0.6;
   cursor: not-allowed;
 }
 
-/* Inputs */
+/* Inputs and Textarea */
 [data-feathery-id="page1"] input,
 [data-feathery-id="page1"] textarea {
-  background-color: hsl(var(--background));
+  background-color: hsl(var(--input));
   color: hsl(var(--foreground));
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius);
@@ -99,25 +101,21 @@ body,
   box-shadow: 0 0 0 3px hsl(var(--ring));
 }
 
-/* Select Fields */
+/* Select Dropdown */
 [data-feathery-id="page1"] select {
   appearance: none;
-  display: inline-block;
-  width: 100%;
-  max-width: 200px;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   font-size: 1rem;
-  line-height: 1.5;
+  background-color: hsl(var(--input));
+  color: hsl(var(--foreground));
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius);
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23808D98' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7' /%3E%3C/svg%3E");
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23808D98' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
   background-size: 1rem;
-  cursor: pointer;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 [data-feathery-id="page1"] select:focus {
@@ -126,38 +124,27 @@ body,
   box-shadow: 0 0 0 3px hsl(var(--ring));
 }
 
-[data-feathery-id="page1"] select:disabled {
-  background-color: hsl(var(--muted));
-  color: hsl(var(--muted-foreground));
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
 [data-feathery-id="page1"] select option {
-  background-color: hsl(var(--popover));
-  color: hsl(var(--popover-foreground));
-  padding: 0.5rem;
-  font-size: 1rem;
-  line-height: 1.5;
+  background-color: hsl(var(--card));
+  color: hsl(var(--card-foreground));
 }
 
 [data-feathery-id="page1"] select option:hover {
-  background-color: hsl(var(--accent));
-  color: hsl(var(--accent-foreground));
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
 }
 
-/* Checkboxes and Radio Buttons */
-[data-feathery-id="page1"] input[type="checkbox"],
-[data-feathery-id="page1"] input[type="radio"] {
-  background-color: hsl(var(--background));
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius);
-}
-
-/* Labels */
-[data-feathery-id="page1"] label {
+/* Toggle Buttons */
+[data-feathery-id="page1"] .toggle-group button {
+  background-color: hsl(var(--border));
   color: hsl(var(--foreground));
-  font-weight: 500;
+  border: 1px solid hsl(var(--ring));
+}
+
+[data-feathery-id="page1"] .toggle-group button.active {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border: none;
 }
 
 /* Containers */
@@ -167,6 +154,5 @@ body,
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius);
   padding: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
-</style>
