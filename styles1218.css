@@ -106,7 +106,7 @@ body,
   appearance: none;
   padding: 0.5rem 1rem;
   font-size: 1rem;
-  background-color: hsl(var(--input));
+  background-color: hsl(var(--card));
   color: hsl(var(--foreground));
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius);
