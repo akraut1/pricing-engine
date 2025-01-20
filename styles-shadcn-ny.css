@@ -19,6 +19,7 @@
   --border: 240 5.9% 90%;
   --input: 240 5.9% 90%; /* Added for consistency */
   --ring: 240 5.9% 10%;
+  --accent-blue: 277 87% 56%;
   --radius: 0.5rem;
 }
 
@@ -85,20 +86,19 @@ body,
 /* Inputs and Textarea */
 [data-feathery-id="page1"] input,
 [data-feathery-id="page1"] textarea {
-  background-color: hsl(var(--input));
+  background-color: hsl(var(--background));
   color: hsl(var(--foreground));
-  border: 1px solid hsl(var(--border));
-  border-radius: var(--radius);
+  border: 1px solid hsl(var(--input));
+  border-radius: hsl(var(--radius));
   padding: 0.5rem;
   font-size: 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.3s ease;
 }
 
 [data-feathery-id="page1"] input:focus,
+[data-feathery-id="page1"] select:focus,
 [data-feathery-id="page1"] textarea:focus {
-  outline: none;
-  border-color: hsl(var(--ring));
-  box-shadow: 0 0 0 3px hsl(var(--ring));
+  border-color: hsl(var(--accent-blue));
 }
 
 /* Select Dropdown */
@@ -106,7 +106,7 @@ body,
   appearance: none;
   padding: 0.5rem 1rem;
   font-size: 1rem;
-  background-color: hsl(var(--card));
+  background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius);
@@ -116,12 +116,6 @@ body,
   background-position: right 0.75rem center;
   background-size: 1rem;
   transition: all 0.3s ease;
-}
-
-[data-feathery-id="page1"] select:focus {
-  outline: none;
-  border-color: hsl(var(--ring));
-  box-shadow: 0 0 0 3px hsl(var(--ring));
 }
 
 [data-feathery-id="page1"] select option {
