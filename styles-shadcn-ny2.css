@@ -52,7 +52,7 @@
 body,
 [data-feathery-id="step-1"],
 [data-feathery-id="step-1"] * {
-  background-color: linear-gradient(0deg, var(--alpha-40, rgba(9, 9, 11, 0.60)) 0%, var(--alpha-40, rgba(9, 9, 11, 0.60)) 100%), var(--base-muted);
+  background: linear-gradient(0deg, var(--alpha-40, rgba(9, 9, 11, 0.60)) 0%, var(--alpha-40, rgba(9, 9, 11, 0.60)) 100%), var(--base-muted);
   color: hsl(var(--foreground));
   font-family: 'Inter', sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
