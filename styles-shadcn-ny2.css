@@ -1,0 +1,160 @@
+/* jsDelivr link -- https://cdn.jsdelivr.net/gh/akraut1/pricing-engine@refs/heads/feathery/styles-shadcn-ny2.css */
+
+/* Light Theme */
+.light-theme {
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --primary: 240 5.9% 10%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%; /* Added for consistency */
+  --ring: 240 5.9% 10%;
+  --radius: 0.5rem;
+}
+
+/* Dark Theme */
+.dark-theme {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 240 10% 5%;
+  --card-foreground: 0 0% 98%;
+  --popover: 240 10% 5%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 240 6% 20%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 4% 15%;
+  --input: 240 3.7% 15.9%; /* Added to match light theme */
+  --ring: 240 5% 50%;
+  --radius: 0.5rem;
+}
+
+/* Base Styles */
+body,
+[data-feathery-id="step-1"],
+[data-feathery-id="step-1"] * {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Buttons */
+[data-feathery-id="step-1"] button {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--border));
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-feathery-id="step-1"] button:hover {
+  background-color: hsl(var(--primary-foreground));
+  color: hsl(var(--primary));
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+[data-feathery-id="step-1"] button:disabled {
+  background-color: hsl(var(--border));
+  color: hsl(var(--muted-foreground));
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Inputs and Textarea */
+[data-feathery-id="step-1"] input,
+[data-feathery-id="step-1"] textarea {
+  background-color: hsl(var(--input));
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  padding: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-feathery-id="step-1"] input:focus,
+[data-feathery-id="step-1"] textarea:focus {
+  outline: none;
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 3px hsl(var(--ring));
+}
+
+/* Select Dropdown */
+[data-feathery-id="step-1"] select {
+  appearance: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: hsl(var(--card));
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23808D98' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+[data-feathery-id="step-1"] select:focus {
+  outline: none;
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 3px hsl(var(--ring));
+}
+
+[data-feathery-id="step-1"] select option {
+  background-color: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+}
+
+[data-feathery-id="step-1"] select option:hover {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+/* Toggle Buttons */
+[data-feathery-id="step-1"] .toggle-group button {
+  background-color: hsl(var(--border));
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--ring));
+}
+
+[data-feathery-id="step-1"] .toggle-group button.active {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border: none;
+}
+
+/* Containers */
+[data-feathery-id="step-1"] .container {
+  background-color: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
